@@ -1,14 +1,33 @@
 <!-- question-type: inclass -->
-### Exercise 7: Title
 
-This is the text for the question, with its accompanying code 
+### Exercise 7: Producing Evidence that Answers Your Question
 
-```{r}
-# Example code for the question
-1 + 1
-```
+Using the dataset your group prepared in Exercise 6, produce **one or two graphs or tables** that help answer your allocated question.
+
+Your output should match the scope your group chose in Exercise 5.
+
+::: {.callout-note collapse="true"}
+
+### What should a good output make clear?
+
+Your graph or table should be clear enough that another group could understand:
+
+* what variables you are showing
+* what subset of the data you chose to use
+* what pattern or relationship the output is meant to highlight
+
+:::
+
+::: {.callout-note collapse="true"}
+
+### Presentation reminders
+
+If you create a graph, make sure it has informative axis labels and a clear title.
+If you create a table, make sure it has clear column names and is easy to interpret.
+:::
 
 <!-- BEGIN PROFILE:r-teaching-guide -->
+
 ::: {.content-visible when-profile="r-teaching-guide"}
 
 ::: {.teaching-block}
@@ -19,32 +38,49 @@ Teaching Note
 
 ::: {.teaching-block-body}
 
-🎯 **Learning Objective** 
+🎯 **Learning Objective**
+
 Students should:
 
-- XXXXX
+* turn a cleaned analysis dataset into evidence that speaks to their allocated question
+* choose an output format that fits the question and scope they selected earlier
+* present a graph or table clearly enough for another group to interpret
+* connect data wrangling decisions to communication choices
 
-✅   **Core Concepts to Highlight**
+✅ **Core Concepts to Highlight**
 
-List them here
+* A good output should help answer the question, not just display the data.
+* Students should choose the format that best communicates the relationship they want to show.
+* A graph or table becomes more useful when the title, labels, and scope are clear.
+* Simpler outputs are often better than overloaded ones.
+* This exercise is about producing evidence that can later be used in the short brief.
 
+💬 **Suggested In-Class Prompts**
 
-💬 **Suggested In-Class Prompts** (if needed)
-
-List as needed
+* What does this graph or table help us see?
+* Why did you choose this format rather than another one?
+* Does the output match the scope you chose in Exercise 5?
+* Could another group understand what you found without extra explanation?
+* Are there any labels, titles, or notes missing?
 
 📌 **Common Misunderstandings**
 
-List as needed
+* Students may produce a graph or table that is visually busy but does not answer the question clearly.
+* Students may forget to match the output to the countries, years, or variation they selected earlier.
+* Students may leave axes, titles, or column names too vague.
+* Students may assume graphs are always better than tables.
+* Students may create two outputs that duplicate each other rather than adding insight.
 
 :::
 
 :::
 
 :::
+
 <!-- END PROFILE:r-teaching-guide -->
 
 <!-- BEGIN PROFILE:r-solutions -->
+
 ::: {.content-visible when-profile="r-solutions" when-profile="r-teaching-guide"}
 
 ::: {.solution-block}
@@ -55,14 +91,110 @@ Solution
 
 ::: {.solution-block-body}
 
-Here’s the explanation and code:
+There are many possible good answers to this exercise. What matters most is that the graph or table helps answer the group's question clearly.
+
+Below is **one possible solution** that continues the example from Exercise 6 for the question **How does urbanisation relate to GDP per capita?**
+
+One sensible approach is to create:
+
+1. a graph showing the relationship between GDP per capita and urbanisation for selected years
+2. a table summarising continent-level averages for a few benchmark years
+
+In this case, we would usually **prefer the graph** because the main question is about the **relationship** between two variables, and a graph makes that pattern easier to see. That said, if a group is pressed for time, a clear summary table can still be a valid alternative.
 
 ```{r}
-print("Hello, world!")
+#| eval: false
+
+# Graph: relationship between GDP per capita and urbanisation
+analysis_df |>
+  filter(year %in% c(1960, 1990, 2020)) |>
+  ggplot(
+    aes(
+      x = gdp_pcap_pp / 1e3,
+      y = urban_pct,
+      size = pop,
+      colour = continent_name
+    )
+  ) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(
+    aes(x = gdp_pcap_pp / 1e3, y = urban_pct),
+    method = "lm",
+    formula = y ~ poly(x, 2),
+    linetype = "dashed",
+    se = FALSE,
+    colour = "grey40"
+  ) +
+  scale_x_log10() +
+  ggokabeito::scale_color_okabe_ito() +
+  scale_size(guide = "none") +
+  facet_wrap(~year) +
+  labs(
+    title = "Urbanisation and GDP per capita across countries",
+    subtitle = "Selected years: 1960, 1990, and 2020",
+    x = "GDP per capita ('000s of USD, 2021 PPP adjusted)",
+    y = "Population living in urban areas (%)",
+    colour = "Continent"
+  ) +
+  theme_bw()
 ```
-:::
+
+```{r}
+#| eval: false
+# Table: continent-level summary for the same benchmark years
+table_continent_year <- analysis_df |>
+  filter(year %in% c(1960, 1990, 2020)) |>
+  group_by(continent_name, year) |>
+  summarise(
+    avg_gdp_pcap_pp = weighted.mean(gdp_pcap_pp, w = pop, na.rm = TRUE),
+    avg_urban_pct   = weighted.mean(urban_pct, w = pop, na.rm = TRUE),
+    total_pop       = sum(pop, na.rm = TRUE),
+    n_countries     = n_distinct(geo),
+    .groups = "drop"
+  ) |>
+  mutate(
+    avg_gdp_pcap_pp = round(avg_gdp_pcap_pp, 0),
+    avg_urban_pct   = round(avg_urban_pct, 1),
+    total_pop_m     = round(total_pop / 1e6, 1)
+  ) |>
+  select(
+    continent = continent_name,
+    year,
+    n_countries,
+    total_pop_m,
+    avg_gdp_pcap_pp,
+    avg_urban_pct
+  ) |>
+  arrange(continent, year)
+
+table_continent_year |>
+  kable(
+    col.names = c(
+      "Continent",
+      "Year",
+      "Countries",
+      "Population (millions)",
+      "Avg GDP per capita",
+      "Avg urbanisation (%)"
+    ),
+    caption = "Urbanisation and GDP per capita by continent, 1960, 1990, and 2020"
+  )
+```
+
+This is only one possible solution. A group could also choose a simpler graph, a simpler table, a different subset of years, or a different way of comparing countries or regions.
+
+What makes this a strong answer is that:
+
+* the outputs match the question being asked
+* the scope is clear and consistent across the graph and table
+* the titles and labels help another group interpret the results
+* the graph is well suited to showing the relationship between two variables
+* the table is a useful fallback or complement when time is short or when a summary by continent is easier to interpret
 
 :::
 
 :::
+
+:::
+
 <!-- END PROFILE:r-solutions -->

@@ -1,12 +1,27 @@
 <!-- question-type: prepare -->
-### Exercise 1: Title
+### Exercise 1: Recognising Different Kinds of Data
 
-This is the text for the question, with its accompanying code 
+Data can vary across people, firms, products, places, and time. Before we start working with this week's datasets, it is useful to step back and think about the kinds of variation different datasets contain.
 
-```{r}
-# Example code for the question
-1 + 1
-```
+**(a)** Look back at the datasets in the table below from earlier in the course. For each one:
+
+- classify the dataset as **cross-sectional**, **time series**, or **panel**
+- describe what **one row** represents
+- identify the **cross-sectional unit** where relevant
+- identify the **time unit** where relevant
+
+| Dataset | Where it appeared in the course | Data type | What does one row represent? | Cross-sectional unit | Time unit |
+|---|---|---|---|---|---|
+| Cookie Cats | Week 2 Lecture |  |  |  |  |
+| Dominick Beer Sales | Week 3 Lecture |  |  |  |  |
+| Melbourne Housing | Week 4 Tutorial |  |  |  |  |
+| ASX 200 Firm Financials | Week 4 Lecture |  |  |  |  |
+
+**(b)** In your own words, explain the difference between the following three types of data:
+
+1. **Cross-sectional data**
+2. **Time series data**
+3. **Panel data**
 
 <!-- BEGIN PROFILE:r-teaching-guide -->
 ::: {.content-visible when-profile="r-teaching-guide"}
@@ -19,23 +34,36 @@ Teaching Note
 
 ::: {.teaching-block-body}
 
-🎯 **Learning Objective** 
+🎯 **Learning Objective**  
+
 Students should:
 
-- XXXXX
+- classify familiar datasets as **cross-sectional**, **time series**, or **panel**
+- identify what **one row** in a dataset represents
+- distinguish between the **cross-sectional unit** and the **time unit**
+- recognise that dataset type depends on the structure of the data they actually have, not the broader phenomenon being studied
 
-✅   **Core Concepts to Highlight**
+✅ **Core Concepts to Highlight**
 
-List them here
+- **Cross-sectional data** vary across units, but not across time in the dataset being analysed.
+- **Time series data** vary over time for a single unit.
+- **Panel data** vary across both units and time.
+- The **unit of observation** matters. Students should say what one row represents, not just label the dataset.
+- A dataset can be cross-sectional even when the underlying phenomenon exists over time.
 
+💬 **Suggested In-Class Prompts**
 
-💬 **Suggested In-Class Prompts** (if needed)
-
-List as needed
+- What does one row represent in each dataset?
+- Why is the ASX dataset cross-sectional here, even though firms have financials every year?
+- What extra variation do you gain when you move from a cross section to a panel?
+- What kinds of questions can panel data answer that a pure cross section cannot?
 
 📌 **Common Misunderstandings**
 
-List as needed
+- Students may classify **ASX 200 Firm Financials** as panel data because firms exist over time. But the dataset used in class only contained **2024**, so the correct classification is **cross-sectional**.
+- Students may focus on the subject matter and forget the row structure.
+- With **Dominick Beer Sales**, students may say the cross-sectional unit is just the store or just the product. It is better to emphasise that each row combines **product, store, and week**.
+- Students may define cross-sectional data too loosely as “data without time.” It is better to say they are many units observed at one point in time, or in a dataset where time is not part of the unit of observation.
 
 :::
 
@@ -55,11 +83,24 @@ Solution
 
 ::: {.solution-block-body}
 
-Here’s the explanation and code:
+**(a)**
 
-```{r}
-print("Hello, world!")
-```
+| Dataset | Where it appeared in the course | Data type | What does one row represent? | Cross-sectional unit | Time unit |
+|---|---|---|---|---|---|
+| Cookie Cats | Week 2 Lecture | Cross-sectional | One player | Player | Not applicable |
+| Dominick Beer Sales | Week 3 Lecture | Panel | One product in one store in one week | Product and store | Week |
+| Melbourne Housing | Week 4 Tutorial | Cross-sectional | One house listing or sale | Property | Not applicable |
+| ASX 200 Firm Financials | Week 4 Lecture | Cross-sectional | One firm in 2024 | Firm | Not applicable |
+
+The tricky case here is **ASX 200 Firm Financials**. Even though firms have financial data over time in the real world, the dataset we worked with only contained one year, so the dataset itself is **cross-sectional**.
+
+**(b)**
+
+- **Cross-sectional data** record many units at one point in time, or with no meaningful time dimension in the dataset. Each row is usually a different person, firm, product, or place.
+- **Time series data** record one unit repeatedly over time. Each row is usually a different time period, such as a day, month, or year.
+- **Panel data** record many units repeatedly over time. Each row combines a cross-sectional unit with a time period, such as a firm-year or store-week observation.
+
+
 :::
 
 :::

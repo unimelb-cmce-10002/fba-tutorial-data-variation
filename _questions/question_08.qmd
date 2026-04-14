@@ -1,14 +1,51 @@
 <!-- question-type: inclass -->
-### Exercise 8: Title
 
-This is the text for the question, with its accompanying code 
+### Exercise 8: Writing Up Your Findings
 
-```{r}
-# Example code for the question
-1 + 1
-```
+Use **one graph or table** from Exercise 7 and write a short executive brief for an international policy think tank.
+
+Your brief should explain your group's question, summarise the main pattern you found, and explain why it matters.
+
+::: {.callout-warning collapse="true"}
+
+### Instructions
+
+* **Length:** about 400 words
+* **Exhibit:** 1 table or figure
+* Write for a non-technical audience
+* Use full sentences in dot points
+* Do not include code
+* Do not do any new analysis in this section. Use the evidence you already produced.
+* For writing style, refer to the **"Write Like an Amazonian"** document on Canvas.
+
+### Format
+
+Use the format below:
+
+**Executive Summary**
+
+Write 3 to 4 sentences summarising:
+
+* the question
+* the main finding
+* why it matters
+
+**Key Insights**
+
+Write up to 3 dot points explaining what the data show.
+
+**Policy Implications**
+
+Write up to 3 dot points explaining why the findings matter for policymakers or policy organisations.
+
+**Recommended Actions**
+
+Write up to 3 dot points suggesting clear next steps or actions.
+
+:::
 
 <!-- BEGIN PROFILE:r-teaching-guide -->
+
 ::: {.content-visible when-profile="r-teaching-guide"}
 
 ::: {.teaching-block}
@@ -19,32 +56,49 @@ Teaching Note
 
 ::: {.teaching-block-body}
 
-🎯 **Learning Objective** 
+🎯 **Learning Objective**
 Students should:
 
-- XXXXX
+* communicate an analytical finding clearly to a non-technical audience
+* select one piece of evidence and use it to support a concise written argument
+* distinguish between describing a result and explaining why it matters
+* translate a data pattern into practical policy implications and recommendations
 
-✅   **Core Concepts to Highlight**
+✅ **Core Concepts to Highlight**
 
-List them here
+* This exercise is about **communication**, not new analysis.
+* Students should choose the graph or table that best supports the story they want to tell.
+* A good executive brief is selective. It highlights the most important result rather than repeating every detail.
+* The audience is an **international policy think tank**, so the tone should be clear, concise, and practical.
+* Policy implications should follow from the evidence. Students should avoid making claims their analysis cannot support.
+* Recommendations should be concrete and linked to what the data actually show.
 
+💬 **Suggested In-Class Prompts**
 
-💬 **Suggested In-Class Prompts** (if needed)
-
-List as needed
+* What is the one main message you want the reader to remember?
+* Does your exhibit clearly support that message?
+* Are you explaining what the data show, or are you drifting into unsupported claims?
+* What would a policymaker take away from this finding?
+* Are your recommended actions realistic given the limits of the analysis?
 
 📌 **Common Misunderstandings**
 
-List as needed
+* Students may treat the brief as a place to do more analysis rather than communicate existing results.
+* Students may describe the graph or table mechanically without explaining why it matters.
+* Students may overstate the findings, especially by making causal claims from descriptive analysis.
+* Students may write in an overly technical style rather than for a policy audience.
+* Students may give generic recommendations that are not clearly linked to the evidence.
 
 :::
 
 :::
 
 :::
+
 <!-- END PROFILE:r-teaching-guide -->
 
 <!-- BEGIN PROFILE:r-solutions -->
+
 ::: {.content-visible when-profile="r-solutions" when-profile="r-teaching-guide"}
 
 ::: {.solution-block}
@@ -55,14 +109,38 @@ Solution
 
 ::: {.solution-block-body}
 
-Here’s the explanation and code:
+There are many possible good responses to this exercise. What matters most is that the brief is **clear, selective, and grounded in the evidence the group has already produced**.
 
-```{r}
-print("Hello, world!")
-```
+Below is **one possible solution** based on the question **How does urbanisation relate to GDP per capita?** and a graph comparing countries in 1960, 1990, and 2020.
+
+**Executive Summary**
+
+Across all years shown, countries with higher GDP per capita tend to have higher urbanisation rates. The relationship is clearly positive but nonlinear, and it appears to flatten somewhat in later decades as many countries reach already-high levels of urbanisation. Over time, the distribution shifts toward higher income and higher urbanisation, but substantial cross-country differences remain. For policymakers, this suggests that economic development and urban transition move together, though income alone is not enough to explain urbanisation patterns.
+
+**Key Insights**
+
+* In every benchmark year, countries with higher GDP per capita tend to be more urbanised.
+* The relationship appears curved rather than linear, and seems somewhat flatter in later decades.
+* Countries with similar income levels can still show quite different urbanisation rates, especially at low and middle income levels.
+
+**Policy Implications**
+
+* Policymakers should expect urban growth pressures to intensify as countries move through earlier and middle stages of economic development.
+* At higher income levels, further economic growth may be associated with smaller increases in urbanisation because many countries are already highly urbanised.
+* Because countries at similar income levels can still show different urbanisation patterns, policy design should be sensitive to local context rather than based on income alone.
+
+**Recommended Actions**
+
+* Use country-level urbanisation and income data together to identify where infrastructure demand is likely to rise most quickly.
+* Benchmark countries against peers at similar income levels to identify unusually fast or slow urban transition.
+* Use broad descriptive patterns like these as a starting point, then follow up with more detailed country-specific analysis before making major policy decisions.
+
+This is only one possible solution. A strong response for the life expectancy question, or a response using a table rather than a graph, could also work well as long as it stays clear, concise, and faithful to the evidence.
+
 :::
 
 :::
 
 :::
+
 <!-- END PROFILE:r-solutions -->

@@ -1,8 +1,8 @@
 project:
   render:
     - tutorial.qmd
-title: 'Teaching Guide: R version'
+title: 'Teaching Guide: Using Variation in Data to Tell a Story'
 format:
   html:
-    output-file: "tutorial-r-teaching-guide"
+    output-file: "tutorial-data-variation-teaching-guide"
     output-ext:  "html"

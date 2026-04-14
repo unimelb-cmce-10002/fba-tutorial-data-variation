@@ -1,12 +1,26 @@
-<!-- question-type: prepare -->
-### Exercise 5: Title
+<!-- question-type: inclass -->
+### Exercise 5: Framing Your Group's Analysis
 
-This is the text for the question, with its accompanying code 
+Your tutor will assign your group one of the following questions:
 
-```{r}
-# Example code for the question
-1 + 1
-```
+- How does life expectancy relate to GDP per capita?
+- How does urbanisation relate to GDP per capita?
+
+As a group, complete the tasks below before you begin wrangling and analysing the data.
+
+**(a)** Write down the question your group was allocated.
+
+**(b)** Using dot points, answer the following:
+
+- Is this best treated as a **descriptive**, **predictive**, or **causal** question with the data available in class?
+- Why?
+
+**(c)**  Using dot points, answer the following:
+
+- Which countries or regions will you include?
+- Which years will you include?
+- Will you use **cross-sectional variation**, **time variation**, or **both**?
+- Why is this a sensible scope for today's class?
 
 <!-- BEGIN PROFILE:r-teaching-guide -->
 ::: {.content-visible when-profile="r-teaching-guide"}
@@ -19,23 +33,38 @@ Teaching Note
 
 ::: {.teaching-block-body}
 
-🎯 **Learning Objective** 
+🎯 **Learning Objective**  
+
 Students should:
 
-- XXXXX
+- translate an assigned question into a workable group analysis plan
+- decide whether the question should be treated as **descriptive**, **predictive**, or **causal** with the data available
+- make sensible choices about scope before starting the coding work
+- connect the question they were given to the variation they will actually use in the data
 
-✅   **Core Concepts to Highlight**
+✅ **Core Concepts to Highlight**
 
-List them here
+- The same broad topic can sometimes be framed in different ways, but with the data available in class, these questions are best treated as **descriptive**.
+- A good analysis plan is not just about the question. It also involves choosing a sensible scope.
+- Scope includes decisions about **which units**, **which years**, and **what variation** will be used.
+- Students should see that planning comes before coding. This exercise is about making the later wrangling more purposeful and efficient.
+- A narrower, well-justified plan is often better than an overly ambitious one.
 
+💬 **Suggested In-Class Prompts**
 
-💬 **Suggested In-Class Prompts** (if needed)
-
-List as needed
+- With the data we have, is this really a causal question?
+- What would count as evidence for your question?
+- Do you want to compare across countries, across time, or both?
+- Would all years help, or would a smaller set of years make the analysis clearer?
+- What scope feels realistic for today's class?
 
 📌 **Common Misunderstandings**
 
-List as needed
+- Students may label the question as **causal** just because it asks about a relationship between two variables.
+- Students may choose scope randomly rather than linking it to what they want to show.
+- Students may say they will use “all the data” without considering whether that will make their graphs or tables harder to interpret.
+- Students may identify countries and years but not say what variation they are actually relying on.
+- Students may treat this exercise as repetitive. The key difference from the pre-class work is that they are now making a **group analysis plan** for an assigned question.
 
 :::
 
@@ -55,11 +84,30 @@ Solution
 
 ::: {.solution-block-body}
 
-Here’s the explanation and code:
+There are different reasonable ways to answer this exercise. What matters most is that the group makes a **clear and feasible plan** before starting the data work.
 
-```{r}
-print("Hello, world!")
-```
+Here is one strong example for the question **How does urbanisation relate to GDP per capita?**
+
+**(a) Record your allocated question**
+
+How does urbanisation relate to GDP per capita?
+
+**(b) Classify the question**
+
+- This is best treated as a **descriptive** question with the data available in class.
+- The goal is to summarise and visualise the relationship between two variables in the observed data.
+- We are not trying to predict future values or estimate the effect of GDP per capita on urbanisation.
+
+**(c) Set the scope**
+
+- We would include all countries with available data.
+- We would focus on a smaller set of years, such as 1960 to 2025.
+- We would use **both cross-sectional variation and time variation**.
+- Cross-sectional variation lets us compare countries and regions, while time variation lets us see whether the relationship changes over time.
+- This is a sensible scope for today's class because it keeps the analysis broad enough to draw conclusions but narrow enough to graph and interpret clearly.
+
+A similarly strong answer for the life expectancy question would also classify it as **descriptive** and would make a sensible choice about countries, years, and variation.
+
 :::
 
 :::

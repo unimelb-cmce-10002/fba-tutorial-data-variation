@@ -1,3 +1,15 @@
-## The Business Challenge
+## The Policy Challenge
 
-Explain the Business Challenge and set up in this file
+An international policy think tank is preparing a briefing on how countries change as they develop. Some policymakers are interested in whether rising incomes are closely tied to longer lives. 
+Others want to know whether higher incomes are associated with greater urbanisation and the pressures that come with it, such as demand for housing, transport, and public services.
+
+Your team has been given a set of messy country-level datasets, but the files are spread across multiple tables and are not yet ready for analysis. 
+Your task is to work out what kind of variation the data contain, turn them into a usable dataset, and produce clear evidence that can support a short policy brief.
+
+### R packages for today
+
+```{r}
+library(tidyverse)
+library(ggokabeito)
+```
+

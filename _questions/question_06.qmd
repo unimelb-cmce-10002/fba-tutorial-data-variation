@@ -1,14 +1,54 @@
 <!-- question-type: inclass -->
-### Exercise 1: Title
 
-This is the text for the question, with its accompanying code 
+### Exercise 6: Build Your Analysis Dataset
+
+Work with your group to build the dataset you need to answer your allocated question. You should decide for yourselves how to prepare the data for analysis.
+
+::: {.callout-note collapse="true"}
+### Hint
+
+Depending on your question, you may need to think about some of the following:
+
+* which files you need to load
+* whether any datasets need tidying before they can be analysed
+* whether any datasets need to be joined together
+* whether you want to focus on particular countries, regions, or years
+* whether there are missing values that affect the years or observations you can analyse
+* what one row in your final analysis dataset should represent
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+### Hint: Reshaping year columns
+
+Some of the datasets store the **year inside the column names** rather than in a separate column. In cases like this, `pivot_longer()` can help you move from a wide format to a tidy format.
+
+For example, if your GDP dataset has columns such as `gdp_pcap_pp_1960`, `gdp_pcap_pp_1961`, and so on, you could reshape it like this:
 
 ```{r}
-# Example code for the question
-1 + 1
+#| eval: false
+gdp <- gdp |>
+  pivot_longer(
+    cols = starts_with("gdp_pcap_pp_"),
+    names_to = "year",
+    names_pattern = "gdp_pcap_pp_(\\d{4})$",
+    values_to = "gdp_pcap_pp"
+  )
 ```
 
+Here is what each part is doing:
+
+* `cols = starts_with("gdp_pcap_pp_")` selects the year columns you want to reshape
+* `names_to = "year"` creates a new column called `year`
+* `names_pattern = "gdp_pcap_pp_(\\d{4})$"` extracts the 4-digit year from the original column names
+* `values_to = "gdp_pcap_pp"` puts the GDP values into a single column
+
+After this step, the dataset will be much closer to tidy form, where each row can represent one **country-year** observation.
+:::
+
 <!-- BEGIN PROFILE:r-teaching-guide -->
+
 ::: {.content-visible when-profile="r-teaching-guide"}
 
 ::: {.teaching-block}
@@ -19,32 +59,52 @@ Teaching Note
 
 ::: {.teaching-block-body}
 
-🎯 **Learning Objective** 
+🎯 **Learning Objective**
+
 Students should:
 
-- XXXXX
+* build a usable analysis dataset from multiple raw files
+* tidy wide datasets into a form where each row is one observation
+* join multiple datasets using common keys
+* inspect missingness and make sensible decisions about scope
+* prepare a clean dataset for later visualisation or tabulation
 
-✅   **Core Concepts to Highlight**
+✅ **Core Concepts to Highlight**
 
-List them here
+* Students need to decide what one row in the final dataset should represent. Here, the natural goal is one **country-year**.
+* The messy files are untidy because **year** is stored in the column names.
+* Tidying is not separate from analysis. It is what makes joining and plotting possible.
+* Missingness often becomes visible only after datasets are joined.
+* A sensible analysis sometimes means restricting attention to a period with better data coverage.
+* There is more than one workable path, but the final dataset should match the question the group is trying to answer.
 
+💬 **Suggested In-Class Prompts**
 
-💬 **Suggested In-Class Prompts** (if needed)
-
-List as needed
+* What should one row represent in your final dataset?
+* Can you join these datasets in their current form?
+* Which variables do you actually need for your question?
+* Where do missing values appear after the join?
+* Are there years with especially weak coverage?
+* What filtering choice would make the later graph or table clearer?
 
 📌 **Common Misunderstandings**
 
-List as needed
+* Students may try to join the files before tidying them.
+* Students may tidy one file but forget that the other wide files need the same treatment.
+* Students may ignore missing values and move straight to plotting.
+* Students may drop missing values without checking whether this removes large parts of the time period.
+* Students may build a dataset with the wrong unit of observation.
 
 :::
 
 :::
 
 :::
+
 <!-- END PROFILE:r-teaching-guide -->
 
 <!-- BEGIN PROFILE:r-solutions -->
+
 ::: {.content-visible when-profile="r-solutions" when-profile="r-teaching-guide"}
 
 ::: {.solution-block}
@@ -55,14 +115,110 @@ Solution
 
 ::: {.solution-block-body}
 
-Here’s the explanation and code:
+There are different valid ways to build the analysis dataset. What matters most is that the final dataset is tidy, joined correctly, and suitable for the group’s question.
+
+Here is one strong example for the question relating **urbanisation** to **GDP per capita**.
 
 ```{r}
-print("Hello, world!")
+#| eval: false
+# Load the raw files
+gdp <- read_csv("out_data/gdp.csv")
+urban <- read_csv("out_data/urban.csv")
+pop <- read_csv("out_data/pop.csv")
+codes <- read_csv("out_data/country_to_continent.csv")
+
+# Tidy GDP:
+# the year is currently stored inside the column names,
+# so we reshape to make year a variable
+gdp <- gdp |>
+  pivot_longer(
+    cols = starts_with("gdp_pcap_pp_"),
+    names_to = "year",
+    names_pattern = "gdp_pcap_pp_(\\d{4})$",
+    values_to = "gdp_pcap_pp"
+  ) |>
+  mutate(year = as.numeric(year))
+
+# Tidy urbanisation:
+# again, reshape so each row is one country-year
+urban <- urban |>
+  pivot_longer(
+    cols = starts_with("urban"),
+    names_to = "year",
+    names_pattern = "urban_pct_(\\d{4})$",
+    values_to = "urban_pct"
+  ) |>
+  mutate(year = as.numeric(year))
+
+# Tidy population:
+# this can be useful later for bubble size or weighted summaries
+pop <- pop |>
+  pivot_longer(
+    cols = starts_with("pop"),
+    names_to = "year",
+    names_pattern = "pop_(\\d{4})$",
+    values_to = "pop"
+  ) |>
+  mutate(year = as.numeric(year))
+
+# Join the tidied files together.
+# After this step, each row should represent one country-year.
+analysis_df <- gdp |>
+  left_join(
+    urban |> select(-name),
+    by = join_by(geo, year)
+  ) |>
+  left_join(
+    pop |> select(-name),
+    by = join_by(geo, year)
+  ) |>
+  left_join(
+    codes |> select(-country_name),
+    by = join_by(geo == iso3)
+  )
+
+# Check data coverage by year.
+# This helps us see whether some years have much more missing data than others.
+analysis_df |>
+  group_by(year) |>
+  summarise(
+    n_rows = n(),
+    pct_complete = mean(
+      !is.na(gdp_pcap_pp) &
+      !is.na(urban_pct) &
+      !is.na(pop) &
+      !is.na(continent_name)
+    ) * 100
+  )
+
+# Suppose we decide that coverage is much better from 1960 onward.
+# We can then restrict the time window and remove incomplete rows.
+analysis_df <- analysis_df |>
+  filter(between(year, 1960, 2020)) |>
+  drop_na()
+
+# Inspect the final analysis dataset
+glimpse(analysis_df)
 ```
-:::
+
+This is a strong workflow because it does four things clearly:
+
+1. It reshapes the messy files into tidy form.
+2. It joins them into one country-year dataset.
+3. It checks missingness before moving to analysis.
+4. It makes an explicit filtering decision based on data coverage.
+
+The key missingness lesson here is that dropping missing values should usually come **after** you inspect where the gaps are. A better workflow is:
+
+* build the joined dataset
+* check coverage
+* decide on a sensible analysis window
+* then remove incomplete observations if needed
 
 :::
 
 :::
+
+:::
+
 <!-- END PROFILE:r-solutions -->

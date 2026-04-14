@@ -1,14 +1,26 @@
 <!-- question-type: prepare -->
-### Exercise 4: Title
 
-This is the text for the question, with its accompanying code 
+### Exercise 4: Proposing a Question
 
-```{r}
-# Example code for the question
-1 + 1
-```
+You have now inspected the datasets and thought about the kind of variation they contain.
+
+**(a)** Write **one question** that you think could be answered using the datasets in this week's `data` folder. Your question should be specific enough that it could be explored using a table or visualisation.
+
+**(b)** For the question you wrote in part (a), answer the following using dot points:
+
+* Is it **descriptive**, **predictive**, or **causal**?
+* Why does it belong to that category?
+* Which dataset(s) or variable(s) would you need?
+
+**(c)** Explain how you would scope the analysis:
+
+* Which countries or regions might you include?
+* Which years might you include?
+* What kind of variation would you be using: cross-sectional variation, time variation, or both?
+* Why do these choices make sense for your question?
 
 <!-- BEGIN PROFILE:r-teaching-guide -->
+
 ::: {.content-visible when-profile="r-teaching-guide"}
 
 ::: {.teaching-block}
@@ -19,32 +31,54 @@ Teaching Note
 
 ::: {.teaching-block-body}
 
-🎯 **Learning Objective** 
+🎯 **Learning Objective**
+
 Students should:
 
-- XXXXX
+* propose a feasible question that can be answered using the available data
+* distinguish between **descriptive**, **predictive**, and **causal** questions
+* connect a question to the variables needed to answer it
+* make sensible choices about countries, years, and the kind of variation they would use
+* begin narrowing a broad idea into an analysable task
 
-✅   **Core Concepts to Highlight**
+✅ **Core Concepts to Highlight**
 
-List them here
+* A good question is not just interesting. It must also be answerable with the data available.
+* **Descriptive questions** ask what is happening in the data.
+* **Predictive questions** ask what we can forecast or estimate for unseen observations.
+* **Causal questions** ask what happens because of something.
+* Most sensible questions students can answer with these datasets will be **descriptive**.
+* Choosing countries and years is part of good analytical design. A narrower question is often easier to answer well than a very broad one.
+* Students should connect the question they ask to the kind of variation they plan to use.
 
+💬 **Suggested In-Class Prompts**
 
-💬 **Suggested In-Class Prompts** (if needed)
-
-List as needed
+* Is this question actually answerable with the datasets we have?
+* What would a graph or table for this question look like?
+* Does the question ask for description, prediction, or causation?
+* What countries or years would you include, and why?
+* What kind of variation are you using to answer the question?
+* Would narrowing the scope make the question stronger?
 
 📌 **Common Misunderstandings**
 
-List as needed
+* Students may propose questions that are far too broad, such as “How does development affect society?”
+* Students may label a question as **causal** just because it involves two related variables.
+* Students may forget to connect the question back to specific datasets or variables.
+* Students may choose countries or years randomly rather than explaining why those choices fit the question.
+* Students may identify the variables but not the variation they are actually relying on.
+* Students may think a more complicated question is always better. In this exercise, a narrower and clearer question is usually stronger.
 
 :::
 
 :::
 
 :::
+
 <!-- END PROFILE:r-teaching-guide -->
 
 <!-- BEGIN PROFILE:r-solutions -->
+
 ::: {.content-visible when-profile="r-solutions" when-profile="r-teaching-guide"}
 
 ::: {.solution-block}
@@ -55,14 +89,35 @@ Solution
 
 ::: {.solution-block-body}
 
-Here’s the explanation and code:
+There are many possible good answers to this question. What matters most is that the proposed question is **clear, feasible, and well matched to the available data**.
 
-```{r}
-print("Hello, world!")
-```
+Here is one strong example.
+
+**(a) Propose a question**
+
+How does the relationship between GDP per capita and urbanisation differ across continents?
+
+**(b) Classify the question**
+
+* This is a **descriptive** question.
+* It is descriptive because it asks us to summarise a relationship in the observed data. It does not try to predict future outcomes or estimate the effect of one variable on another.
+* I would need `gdp.csv` and `urban.csv`.
+* I would also use `country_to_continent.csv` if I wanted to compare patterns across continents.
+
+**(c) Scope the analysis**
+
+* I would include all countries with available data.
+* I would compare a smaller number of years, such as 1960, 1990, and 2020.
+* I would use **both cross-sectional variation and time variation**.
+* Cross-sectional variation would let me compare countries and continents, while time variation would let me see how the relationship changes over time.
+* These choices make sense because the question is about broad global patterns rather than a single country or a single year.
+
+Other good examples are possible. For instance, a student might ask how urbanisation changes over time in selected countries, or whether richer countries tend to have higher life expectancy. Those could also work well, as long as the question is specific and the classification is justified clearly.
+
 :::
 
 :::
 
 :::
-<!-- END PROFILE:r-solutions -->
+
+<!-- END PROFILE:r-solutions

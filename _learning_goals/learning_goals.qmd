@@ -1,8 +1,12 @@
 ::: {.callout-tip}
-## Learning Goals {.unnumbered}
+### Learning Goals
 
 By the end of this tutorial, you should be able to:
 
-- COMPLETE THIS
-- WITH MULTIPLE BULLETS
+- Identify whether a dataset contains cross-sectional, time series, or panel variation
+- Diagnose whether a dataset is tidy and explain how its structure affects analysis
+- Tidy and join multiple country-level datasets to build a usable country-year analysis dataset
+- Formulate and scope a question that can be answered with the available data
+- Create a clear graph or table that helps communicate a relationship in the data
+- Write a short, non-technical brief that explains what the data show and why it matters for policy
 :::

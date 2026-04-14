@@ -1,14 +1,15 @@
 <!-- question-type: prepare -->
-### Exercise 2: Title
 
-This is the text for the question, with its accompanying code 
+### Exercise 2: Using Variation in Data to Tell a Story
 
-```{r}
-# Example code for the question
-1 + 1
-```
+Watch the Gapminder video available [here](https://www.gapminder.org/videos/how-does-income-relate-to-life-expectancy/) and answer the following questions:
+
+* What relationship the visualisation is trying to show?
+* What makes the plot effective?
+* What is one thing that could be improved in the plot they use?
 
 <!-- BEGIN PROFILE:r-teaching-guide -->
+
 ::: {.content-visible when-profile="r-teaching-guide"}
 
 ::: {.teaching-block}
@@ -19,32 +20,48 @@ Teaching Note
 
 ::: {.teaching-block-body}
 
-🎯 **Learning Objective** 
+🎯 **Learning Objective**
+
 Students should:
 
-- XXXXX
+* identify the main relationship a visualisation is designed to communicate
+* explain why a data visualisation is effective in telling a story
+* begin evaluating visualisations critically rather than treating them as neutral outputs
 
-✅   **Core Concepts to Highlight**
+✅ **Core Concepts to Highlight**
 
-List them here
+* Good visualisations do not just display data. They help the viewer see a pattern or relationship.
+* Variation in data can come from differences across countries, across time, or both.
+* Effective visualisations usually make the main comparison easy to see.
+* A strong plot can still be improved. Students should get used to evaluating choices, not just describing them.
+* Adding more information is not always better. Sometimes extra aesthetics make a graph harder to interpret.
 
+💬 **Suggested In-Class Prompts**
 
-💬 **Suggested In-Class Prompts** (if needed)
-
-List as needed
+* What is the main message of the visualisation?
+* What choices help the viewer see that message quickly?
+* Does the plot help you compare across countries, across time, or both?
+* Is every mapped variable easy to interpret?
+* What would you change if you wanted the message to be even clearer?
 
 📌 **Common Misunderstandings**
 
-List as needed
+* Students may just describe what is on the screen without identifying the relationship the plot is trying to show.
+* Students may say a plot is “good” or “clear” without explaining why.
+* Students may focus on decoration rather than on what helps the audience understand the data.
+* Students may suggest improvements that change the chart style without improving interpretation.
+* Students may assume that adding population as bubble size automatically improves the chart, even if the size scale makes comparison harder.
 
 :::
 
 :::
 
 :::
+
 <!-- END PROFILE:r-teaching-guide -->
 
 <!-- BEGIN PROFILE:r-solutions -->
+
 ::: {.content-visible when-profile="r-solutions" when-profile="r-teaching-guide"}
 
 ::: {.solution-block}
@@ -55,14 +72,20 @@ Solution
 
 ::: {.solution-block-body}
 
-Here’s the explanation and code:
+A strong response would identify the main pattern and then comment briefly on design.
 
-```{r}
-print("Hello, world!")
-```
+For example:
+
+* The visualisation is trying to show the relationship between income and life expectancy across countries.
+* The plot is effective because it makes the broad pattern easy to see and uses colour to help distinguish different regions of the world.
+* One possible improvement is the use of population for dot size. Very large bubbles can dominate the plot, and differences in area are not always easy to interpret when size is mapped continuously.
+
+Other reasonable answers are possible. The key is that students should identify the **relationship**, explain **why the visual helps communicate it**, and suggest an improvement that relates to **interpretation** rather than just appearance.
+
 :::
 
 :::
 
 :::
+
 <!-- END PROFILE:r-solutions -->

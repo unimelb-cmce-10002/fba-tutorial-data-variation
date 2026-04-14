@@ -2,153 +2,282 @@
 ---
 
 ::: {.callout-tip}
-## Learning Goals {.unnumbered}
+### Learning Goals
 
 By the end of this tutorial, you should be able to:
 
-- COMPLETE THIS
-- WITH MULTIPLE BULLETS
+- Identify whether a dataset contains cross-sectional, time series, or panel variation
+- Diagnose whether a dataset is tidy and explain how its structure affects analysis
+- Tidy and join multiple country-level datasets to build a usable country-year analysis dataset
+- Formulate and scope a question that can be answered with the available data
+- Create a clear graph or table that helps communicate a relationship in the data
+- Write a short, non-technical brief that explains what the data show and why it matters for policy
 :::
 
-## The Business Challenge
+## The Policy Challenge
 
-Explain the Business Challenge and set up in this file
+An international policy think tank is preparing a briefing on how countries change as they develop. Some policymakers are interested in whether rising incomes are closely tied to longer lives. 
+Others want to know whether higher incomes are associated with greater urbanisation and the pressures that come with it, such as demand for housing, transport, and public services.
+
+Your team has been given a set of messy country-level datasets, but the files are spread across multiple tables and are not yet ready for analysis. 
+Your task is to work out what kind of variation the data contain, turn them into a usable dataset, and produce clear evidence that can support a short policy brief.
+
+### R packages for today
+
+```{r}
+library(tidyverse)
+library(ggokabeito)
+```
 
 ## Prepare these Exercises before Class 
 
-Prepare these exercises before coming to class. Plan to spend 30 minutes on these exercises.
+Prepare these exercises before coming to class. Plan to spend 40 minutes on these exercises.
 
-### Exercise 1: Title
+### Exercise 1: Recognising Different Kinds of Data
 
-This is the text for the question, with its accompanying code 
+Data can vary across people, firms, products, places, and time. Before we start working with this week's datasets, it is useful to step back and think about the kinds of variation different datasets contain.
 
-```{r}
-# Example code for the question
-1 + 1
-```
+**(a)** Look back at the datasets in the table below from earlier in the course. For each one:
 
-```{r}
-# Write your answer here
-```
+- classify the dataset as **cross-sectional**, **time series**, or **panel**
+- describe what **one row** represents
+- identify the **cross-sectional unit** where relevant
+- identify the **time unit** where relevant
 
-### Exercise 2: Title
+| Dataset | Where it appeared in the course | Data type | What does one row represent? | Cross-sectional unit | Time unit |
+|---|---|---|---|---|---|
+| Cookie Cats | Week 2 Lecture |  |  |  |  |
+| Dominick Beer Sales | Week 3 Lecture |  |  |  |  |
+| Melbourne Housing | Week 4 Tutorial |  |  |  |  |
+| ASX 200 Firm Financials | Week 4 Lecture |  |  |  |  |
 
-This is the text for the question, with its accompanying code 
+**(b)** In your own words, explain the difference between the following three types of data:
 
-```{r}
-# Example code for the question
-1 + 1
-```
+1. **Cross-sectional data**
+2. **Time series data**
+3. **Panel data**
 
-```{r}
-# Write your answer here
-```
+*Write your answer here*
 
-### Exercise 3: Title
+### Exercise 2: Using Variation in Data to Tell a Story
 
-This is the text for the question, with its accompanying code 
+Watch the Gapminder video available [here](https://www.gapminder.org/videos/how-does-income-relate-to-life-expectancy/) and answer the following questions:
 
-```{r}
-# Example code for the question
-1 + 1
-```
+* What relationship the visualisation is trying to show?
+* What makes the plot effective?
+* What is one thing that could be improved in the plot they use?
 
-```{r}
-# Write your answer here
-```
+*Write your answer here*
 
-### Exercise 4: Title
+### Exercise 3: Inspecting the Structure of the Data
 
-This is the text for the question, with its accompanying code 
+In class, you will work with several small datasets based on Gapminder-style country data. Before you start working with them, it is useful to inspect how each file is structured.
 
-```{r}
-# Example code for the question
-1 + 1
-```
+**(a)**
 
-```{r}
-# Write your answer here
-```
+Open each of the following files from the `data` folder:
 
-### Exercise 5: Title
+* `gdp.csv`
+* `urban.csv`
+* `pop.csv`
+* `country_to_continent.csv`
 
-This is the text for the question, with its accompanying code 
+For each dataset, complete the table below.
 
-```{r}
-# Example code for the question
-1 + 1
-```
+| Dataset                    | What does one row represent? | Tidy or untidy? | What is the main structural issue? |
+| -------------------------- | ---------------------------- | --------------- | ---------------------------------- |
+| `gdp.csv`                  |                              |                 |                                    |
+| `urban.csv`                |                              |                 |                                    |
+| `pop.csv`                  |                              |                 |                                    |
+| `country_to_continent.csv` |                              |                 |                                    |
 
-```{r}
-# Write your answer here
-```
+::: {.callout-note}
+
+### Hint
+
+When describing the main structural issue, be as specific as you can. For example, think about whether a variable is stored in the column names, or whether values that belong in one column have been spread across many columns.
+:::
+
+**(b)**  Using what you observed in part (a), explain whether `gdp.csv`, `urban.csv`, and `pop.csv` contain cross-sectional variation, time variation, or both.
+
+Then explain how the current layout of the files hides or reveals that structure.
+
+*Write your answer here*
+
+### Exercise 4: Proposing a Question
+
+You have now inspected the datasets and thought about the kind of variation they contain.
+
+**(a)** Write **one question** that you think could be answered using the datasets in this week's `data` folder. Your question should be specific enough that it could be explored using a table or visualisation.
+
+**(b)** For the question you wrote in part (a), answer the following using dot points:
+
+* Is it **descriptive**, **predictive**, or **causal**?
+* Why does it belong to that category?
+* Which dataset(s) or variable(s) would you need?
+
+**(c)** Explain how you would scope the analysis:
+
+* Which countries or regions might you include?
+* Which years might you include?
+* What kind of variation would you be using: cross-sectional variation, time variation, or both?
+* Why do these choices make sense for your question?
+
+*Write your answer here*
 
 ## In-Class Exercises
 
 You will discuss these exercises in class with your peers in small groups and with your tutor. These exercises build from the exercises you have prepared above, you will get the most value from the class if you have completed those above before coming to class.
 
-### Exercise 1: Title
+### Exercise 5: Framing Your Group's Analysis
 
-This is the text for the question, with its accompanying code 
+Your tutor will assign your group one of the following questions:
+
+- How does life expectancy relate to GDP per capita?
+- How does urbanisation relate to GDP per capita?
+
+As a group, complete the tasks below before you begin wrangling and analysing the data.
+
+**(a)** Write down the question your group was allocated.
+
+**(b)** Using dot points, answer the following:
+
+- Is this best treated as a **descriptive**, **predictive**, or **causal** question with the data available in class?
+- Why?
+
+**(c)**  Using dot points, answer the following:
+
+- Which countries or regions will you include?
+- Which years will you include?
+- Will you use **cross-sectional variation**, **time variation**, or **both**?
+- Why is this a sensible scope for today's class?
+
+*Write your answer here*
+
+### Exercise 6: Build Your Analysis Dataset
+
+Work with your group to build the dataset you need to answer your allocated question. You should decide for yourselves how to prepare the data for analysis.
+
+::: {.callout-note collapse="true"}
+### Hint
+
+Depending on your question, you may need to think about some of the following:
+
+* which files you need to load
+* whether any datasets need tidying before they can be analysed
+* whether any datasets need to be joined together
+* whether you want to focus on particular countries, regions, or years
+* whether there are missing values that affect the years or observations you can analyse
+* what one row in your final analysis dataset should represent
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+### Hint: Reshaping year columns
+
+Some of the datasets store the **year inside the column names** rather than in a separate column. In cases like this, `pivot_longer()` can help you move from a wide format to a tidy format.
+
+For example, if your GDP dataset has columns such as `gdp_pcap_pp_1960`, `gdp_pcap_pp_1961`, and so on, you could reshape it like this:
 
 ```{r}
-# Example code for the question
-1 + 1
+#| eval: false
+gdp <- gdp |>
+  pivot_longer(
+    cols = starts_with("gdp_pcap_pp_"),
+    names_to = "year",
+    names_pattern = "gdp_pcap_pp_(\\d{4})$",
+    values_to = "gdp_pcap_pp"
+  )
 ```
+
+Here is what each part is doing:
+
+* `cols = starts_with("gdp_pcap_pp_")` selects the year columns you want to reshape
+* `names_to = "year"` creates a new column called `year`
+* `names_pattern = "gdp_pcap_pp_(\\d{4})$"` extracts the 4-digit year from the original column names
+* `values_to = "gdp_pcap_pp"` puts the GDP values into a single column
+
+After this step, the dataset will be much closer to tidy form, where each row can represent one **country-year** observation.
+:::
 
 ```{r}
 # Write your answer here
 ```
 
-### Exercise 7: Title
+### Exercise 7: Producing Evidence that Answers Your Question
 
-This is the text for the question, with its accompanying code 
+Using the dataset your group prepared in Exercise 6, produce **one or two graphs or tables** that help answer your allocated question.
 
-```{r}
-# Example code for the question
-1 + 1
-```
+Your output should match the scope your group chose in Exercise 5.
 
-```{r}
-# Write your answer here
-```
+::: {.callout-note collapse="true"}
 
-### Exercise 8: Title
+### What should a good output make clear?
 
-This is the text for the question, with its accompanying code 
+Your graph or table should be clear enough that another group could understand:
 
-```{r}
-# Example code for the question
-1 + 1
-```
+* what variables you are showing
+* what subset of the data you chose to use
+* what pattern or relationship the output is meant to highlight
 
-```{r}
-# Write your answer here
-```
+:::
 
-### Exercise 9: Title
+::: {.callout-note collapse="true"}
 
-This is the text for the question, with its accompanying code 
+### Presentation reminders
 
-```{r}
-# Example code for the question
-1 + 1
-```
+If you create a graph, make sure it has informative axis labels and a clear title.
+If you create a table, make sure it has clear column names and is easy to interpret.
+:::
 
 ```{r}
 # Write your answer here
 ```
 
-### Exercise 10: Title
+### Exercise 8: Writing Up Your Findings
 
-This is the text for the question, with its accompanying code 
+Use **one graph or table** from Exercise 7 and write a short executive brief for an international policy think tank.
 
-```{r}
-# Example code for the question
-1 + 1
-```
+Your brief should explain your group's question, summarise the main pattern you found, and explain why it matters.
 
-```{r}
-# Write your answer here
-```
+::: {.callout-warning collapse="true"}
+
+### Instructions
+
+* **Length:** about 400 words
+* **Exhibit:** 1 table or figure
+* Write for a non-technical audience
+* Use full sentences in dot points
+* Do not include code
+* Do not do any new analysis in this section. Use the evidence you already produced.
+* For writing style, refer to the **"Write Like an Amazonian"** document on Canvas.
+
+### Format
+
+Use the format below:
+
+**Executive Summary**
+
+Write 3 to 4 sentences summarising:
+
+* the question
+* the main finding
+* why it matters
+
+**Key Insights**
+
+Write up to 3 dot points explaining what the data show.
+
+**Policy Implications**
+
+Write up to 3 dot points explaining why the findings matter for policymakers or policy organisations.
+
+**Recommended Actions**
+
+Write up to 3 dot points suggesting clear next steps or actions.
+
+:::
+
+*Write your answer here*
 

@@ -1,10 +1,10 @@
 project:
   render:
     - tutorial.qmd
-title: 'Questions document: R version'
+title: 'Questions document: Using Variation in Data to Tell a Story'
 execute:
   eval: false
 format:
   html:
-    output-file: "tutorial-r-questions"
+    output-file: "tutorial-data-variation-questions"
     output-ext:  "html"

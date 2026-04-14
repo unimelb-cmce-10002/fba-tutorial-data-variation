@@ -1,14 +1,40 @@
 <!-- question-type: prepare -->
-### Exercise 3: Title
 
-This is the text for the question, with its accompanying code 
+### Exercise 3: Inspecting the Structure of the Data
 
-```{r}
-# Example code for the question
-1 + 1
-```
+In class, you will work with several small datasets based on Gapminder-style country data. Before you start working with them, it is useful to inspect how each file is structured.
+
+**(a)**
+
+Open each of the following files from the `data` folder:
+
+* `gdp.csv`
+* `urban.csv`
+* `pop.csv`
+* `country_to_continent.csv`
+
+For each dataset, complete the table below.
+
+| Dataset                    | What does one row represent? | Tidy or untidy? | What is the main structural issue? |
+| -------------------------- | ---------------------------- | --------------- | ---------------------------------- |
+| `gdp.csv`                  |                              |                 |                                    |
+| `urban.csv`                |                              |                 |                                    |
+| `pop.csv`                  |                              |                 |                                    |
+| `country_to_continent.csv` |                              |                 |                                    |
+
+::: {.callout-note}
+
+### Hint
+
+When describing the main structural issue, be as specific as you can. For example, think about whether a variable is stored in the column names, or whether values that belong in one column have been spread across many columns.
+:::
+
+**(b)**  Using what you observed in part (a), explain whether `gdp.csv`, `urban.csv`, and `pop.csv` contain cross-sectional variation, time variation, or both.
+
+Then explain how the current layout of the files hides or reveals that structure.
 
 <!-- BEGIN PROFILE:r-teaching-guide -->
+
 ::: {.content-visible when-profile="r-teaching-guide"}
 
 ::: {.teaching-block}
@@ -19,32 +45,54 @@ Teaching Note
 
 ::: {.teaching-block-body}
 
-🎯 **Learning Objective** 
+🎯 **Learning Objective**
+
 Students should:
 
-- XXXXX
+* inspect a dataset and identify what one row represents
+* recognise whether a dataset is tidy or untidy
+* diagnose a common untidy structure where a variable is stored in column names
+* connect dataset layout to the underlying variation in the data
+* prepare to tidy and join multiple files in the in-class exercise
 
-✅   **Core Concepts to Highlight**
+✅ **Core Concepts to Highlight**
 
-List them here
+* A tidy dataset gives each variable its own column and each observation its own row.
+* In the messy Gapminder-style files, the main issue is that **year** is stored inside the column names rather than in its own column.
+* This means values for the same variable are spread across many columns.
+* The files contain both **cross-sectional variation** across countries and **time variation** across years, even though that is not displayed clearly in the current layout.
+* A lookup table like `country_to_continent.csv` has a different role from the other files. It is used to add metadata after the main analysis file has been built.
+* Students should see that diagnosing structure comes before writing code.
 
+💬 **Suggested In-Class Prompts**
 
-💬 **Suggested In-Class Prompts** (if needed)
-
-List as needed
+* What does one row represent in each file?
+* Which files have the same structural problem?
+* Why is it hard to join the files in their current form?
+* What variable is missing as an explicit column in the messy files?
+* Do these files contain variation across countries, across time, or both?
+* How does the current layout make that variation harder to see?
+* Why is `country_to_continent.csv` easier to work with than the others?
 
 📌 **Common Misunderstandings**
 
-List as needed
+* Students may describe the topic of the dataset rather than the row structure.
+* Students may say a dataset is untidy without explaining why.
+* Students may focus on the file being “wide” without identifying that **year** is embedded in the column names.
+* Students may think `country_to_continent.csv` is also untidy just because it is a different kind of file. It is better understood as a tidy lookup table.
+* Students may think the files are cross-sectional because each row currently looks like one country. The key point is that the data contain both country and time variation, but the layout hides that.
+* Students may think data only become panel after pivoting. A better answer is that the files already contain panel variation, and tidying makes that structure explicit.
 
 :::
 
 :::
 
 :::
+
 <!-- END PROFILE:r-teaching-guide -->
 
 <!-- BEGIN PROFILE:r-solutions -->
+
 ::: {.content-visible when-profile="r-solutions" when-profile="r-teaching-guide"}
 
 ::: {.solution-block}
@@ -55,14 +103,27 @@ Solution
 
 ::: {.solution-block-body}
 
-Here’s the explanation and code:
+**(a)**
 
-```{r}
-print("Hello, world!")
-```
+| Dataset                    | What does one row represent? | Tidy or untidy? | What is the main structural issue?                                                                                 |
+| -------------------------- | ---------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `gdp.csv`                  | One country                  | Untidy          | The year is stored in the column names, so GDP values for different years are spread across many columns.          |
+| `urban.csv`                | One country                  | Untidy          | The year is stored in the column names, so urbanisation values for different years are spread across many columns. |
+| `pop.csv`                  | One country                  | Untidy          | The year is stored in the column names, so population values for different years are spread across many columns.   |
+| `country_to_continent.csv` | One country                  | Tidy            | No major structural issue. Each row is one country and the variables are already stored in their own columns.      |
+
+**(b)**
+
+A strong answer would explain that these files contain **both cross-sectional variation and time variation**. The data vary across countries, and they also vary across years, so the underlying structure is **panel data**.
+
+The issue is that this panel structure is not displayed clearly in the current layout. At the moment, the files are untidy because the years are stored in the column names rather than in their own `year` column. Under tidy data principles, each row should represent one observation, so a tidied version of these files would have one row per **country-year**.
+
+The first three files are all untidy in a similar way. They will need to be reshaped so that **year** becomes its own column before they can be joined cleanly.
+
 :::
 
 :::
 
 :::
+
 <!-- END PROFILE:r-solutions -->
