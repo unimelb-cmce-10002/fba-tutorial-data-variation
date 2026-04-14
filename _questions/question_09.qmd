@@ -1,0 +1,68 @@
+<!-- question-type: inclass -->
+### Exercise 9: Title
+
+This is the text for the question, with its accompanying code 
+
+```{r}
+# Example code for the question
+1 + 1
+```
+
+<!-- BEGIN PROFILE:r-teaching-guide -->
+::: {.content-visible when-profile="r-teaching-guide"}
+
+::: {.teaching-block}
+
+::: {.teaching-block-header}
+Teaching Note
+:::
+
+::: {.teaching-block-body}
+
+🎯 **Learning Objective** 
+Students should:
+
+- XXXXX
+
+✅   **Core Concepts to Highlight**
+
+List them here
+
+
+💬 **Suggested In-Class Prompts** (if needed)
+
+List as needed
+
+📌 **Common Misunderstandings**
+
+List as needed
+
+:::
+
+:::
+
+:::
+<!-- END PROFILE:r-teaching-guide -->
+
+<!-- BEGIN PROFILE:r-solutions -->
+::: {.content-visible when-profile="r-solutions" when-profile="r-teaching-guide"}
+
+::: {.solution-block}
+
+::: {.solution-block-header}
+Solution
+:::
+
+::: {.solution-block-body}
+
+Here’s the explanation and code:
+
+```{r}
+print("Hello, world!")
+```
+:::
+
+:::
+
+:::
+<!-- END PROFILE:r-solutions -->

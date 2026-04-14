@@ -1,0 +1,43 @@
+---
+format:
+  html:
+    embed-resources: true
+engine: knitr
+---
+
+{{< include _learning_goals/learning_goals.qmd >}}
+
+{{< include _introduction/business_challenge.qmd >}}
+
+
+<!-- BEGIN INSERT:prepare-header -->
+## Prepare these Exercises before Class 
+
+Prepare these exercises before coming to class. Plan to spend 30 minutes on these exercises.
+<!-- END INSERT:prepare-header -->
+
+{{< include _questions/question_01.qmd >}}
+
+{{< include _questions/question_02.qmd >}}
+
+{{< include _questions/question_03.qmd >}}
+
+{{< include _questions/question_04.qmd >}}
+
+{{< include _questions/question_05.qmd >}}
+
+<!-- BEGIN INSERT:inclass-header -->
+## In-Class Exercises
+
+You will discuss these exercises in class with your peers in small groups and with your tutor. These exercises build from the exercises you have prepared above, you will get the most value from the class if you have completed those above before coming to class.
+<!-- END INSERT:inclass-header -->
+
+{{< include _questions/question_06.qmd >}}
+
+{{< include _questions/question_07.qmd >}}
+
+{{< include _questions/question_08.qmd >}}
+
+{{< include _questions/question_09.qmd >}}
+
+{{< include _questions/question_10.qmd >}}

@@ -1,0 +1,8 @@
+*.html
+*.Rproj
+.quarto/*
+.Rproj.user/*
+.Rhistory
+.Rproj.user
+
+/.quarto/

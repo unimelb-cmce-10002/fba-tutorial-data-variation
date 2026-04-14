@@ -1,0 +1,154 @@
+---
+---
+
+::: {.callout-tip}
+## Learning Goals {.unnumbered}
+
+By the end of this tutorial, you should be able to:
+
+- COMPLETE THIS
+- WITH MULTIPLE BULLETS
+:::
+
+## The Business Challenge
+
+Explain the Business Challenge and set up in this file
+
+## Prepare these Exercises before Class 
+
+Prepare these exercises before coming to class. Plan to spend 30 minutes on these exercises.
+
+### Exercise 1: Title
+
+This is the text for the question, with its accompanying code 
+
+```{r}
+# Example code for the question
+1 + 1
+```
+
+```{r}
+# Write your answer here
+```
+
+### Exercise 2: Title
+
+This is the text for the question, with its accompanying code 
+
+```{r}
+# Example code for the question
+1 + 1
+```
+
+```{r}
+# Write your answer here
+```
+
+### Exercise 3: Title
+
+This is the text for the question, with its accompanying code 
+
+```{r}
+# Example code for the question
+1 + 1
+```
+
+```{r}
+# Write your answer here
+```
+
+### Exercise 4: Title
+
+This is the text for the question, with its accompanying code 
+
+```{r}
+# Example code for the question
+1 + 1
+```
+
+```{r}
+# Write your answer here
+```
+
+### Exercise 5: Title
+
+This is the text for the question, with its accompanying code 
+
+```{r}
+# Example code for the question
+1 + 1
+```
+
+```{r}
+# Write your answer here
+```
+
+## In-Class Exercises
+
+You will discuss these exercises in class with your peers in small groups and with your tutor. These exercises build from the exercises you have prepared above, you will get the most value from the class if you have completed those above before coming to class.
+
+### Exercise 1: Title
+
+This is the text for the question, with its accompanying code 
+
+```{r}
+# Example code for the question
+1 + 1
+```
+
+```{r}
+# Write your answer here
+```
+
+### Exercise 7: Title
+
+This is the text for the question, with its accompanying code 
+
+```{r}
+# Example code for the question
+1 + 1
+```
+
+```{r}
+# Write your answer here
+```
+
+### Exercise 8: Title
+
+This is the text for the question, with its accompanying code 
+
+```{r}
+# Example code for the question
+1 + 1
+```
+
+```{r}
+# Write your answer here
+```
+
+### Exercise 9: Title
+
+This is the text for the question, with its accompanying code 
+
+```{r}
+# Example code for the question
+1 + 1
+```
+
+```{r}
+# Write your answer here
+```
+
+### Exercise 10: Title
+
+This is the text for the question, with its accompanying code 
+
+```{r}
+# Example code for the question
+1 + 1
+```
+
+```{r}
+# Write your answer here
+```
+
