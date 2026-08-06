@@ -4,3 +4,6 @@ execute:
 format:
   html:
     css: style.css
+    toc: true
+    toc-location: right
+    toc-depth: 3
