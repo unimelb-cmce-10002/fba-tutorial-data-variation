@@ -10,6 +10,7 @@ Open each of the following files from the `data` folder:
 
 * `gdp.csv`
 * `urban.csv`
+* `life_exp.csv`
 * `pop.csv`
 * `country_to_continent.csv`
 
@@ -19,6 +20,7 @@ For each dataset, complete the table below.
 | -------------------------- | ---------------------------- | --------------- | ---------------------------------- |
 | `gdp.csv`                  |                              |                 |                                    |
 | `urban.csv`                |                              |                 |                                    |
+| `life_exp.csv`             |                              |                 |                                    |
 | `pop.csv`                  |                              |                 |                                    |
 | `country_to_continent.csv` |                              |                 |                                    |
 
@@ -29,7 +31,7 @@ For each dataset, complete the table below.
 When describing the main structural issue, be as specific as you can. For example, think about whether a variable is stored in the column names, or whether values that belong in one column have been spread across many columns.
 :::
 
-**(b)**  Using what you observed in part (a), explain whether `gdp.csv`, `urban.csv`, and `pop.csv` contain cross-sectional variation, time variation, or both.
+**(b)**  Using what you observed in part (a), explain whether `gdp.csv`, `urban.csv`, `life_exp.csv`, and `pop.csv` contain cross-sectional variation, time variation, or both.
 
 Then explain how the current layout of the files hides or reveals that structure.
 
@@ -109,6 +111,7 @@ Solution
 | -------------------------- | ---------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------ |
 | `gdp.csv`                  | One country                  | Untidy          | The year is stored in the column names, so GDP values for different years are spread across many columns.          |
 | `urban.csv`                | One country                  | Untidy          | The year is stored in the column names, so urbanisation values for different years are spread across many columns. |
+| `life_exp.csv`             | One country                  | Untidy          | The year is stored in the column names, so life expectancy values for different years are spread across many columns. |
 | `pop.csv`                  | One country                  | Untidy          | The year is stored in the column names, so population values for different years are spread across many columns.   |
 | `country_to_continent.csv` | One country                  | Tidy            | No major structural issue. Each row is one country and the variables are already stored in their own columns.      |
 
@@ -118,7 +121,7 @@ A strong answer would explain that these files contain **both cross-sectional va
 
 The issue is that this panel structure is not displayed clearly in the current layout. At the moment, the files are untidy because the years are stored in the column names rather than in their own `year` column. Under tidy data principles, each row should represent one observation, so a tidied version of these files would have one row per **country-year**.
 
-The first three files are all untidy in a similar way. They will need to be reshaped so that **year** becomes its own column before they can be joined cleanly.
+The first four files are all untidy in the same way. They will need to be reshaped so that **year** becomes its own column before they can be joined cleanly. Only `country_to_continent.csv` is already tidy.
 
 :::
 

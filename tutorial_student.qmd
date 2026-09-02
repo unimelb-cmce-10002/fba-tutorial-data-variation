@@ -11,16 +11,30 @@ By the end of this tutorial, you should be able to:
 - Tidy and join multiple country-level datasets to build a usable country-year analysis dataset
 - Formulate and scope a question that can be answered with the available data
 - Create a clear graph or table that helps communicate a relationship in the data
-- Write a short, non-technical brief that explains what the data show and why it matters for policy
+- Write a short, non-technical brief that explains what the data show and why it matters for a decision-maker
 :::
 
 ## The Policy Challenge
 
-An international policy think tank is preparing a briefing on how countries change as they develop. Some policymakers are interested in whether rising incomes are closely tied to longer lives. 
-Others want to know whether higher incomes are associated with greater urbanisation and the pressures that come with it, such as demand for housing, transport, and public services.
+You work in the research team at an international development bank. The bank lends to governments for long-term infrastructure — hospitals, housing, water, public transport — and those loans are decided years before the infrastructure is needed.
 
-Your team has been given a set of messy country-level datasets, but the files are spread across multiple tables and are not yet ready for analysis. 
-Your task is to work out what kind of variation the data contain, turn them into a usable dataset, and produce clear evidence that can support a short policy brief.
+Your director is preparing a briefing for the board on a single practical question:
+
+> **As countries get richer, what predictably changes about them?**
+
+The answer shapes where the bank commits money. For example, if rising incomes reliably come with rapid urban growth, the bank should be funding city infrastructure ahead of the demand. If rising incomes come with longer lives, it should be funding healthcare for an ageing population instead. 
+
+Your team has been given five country-level files. They are not ready for analysis: the data are untidy and spread across separate tables. Your task is to work out what kind of variation these data contain, turn them into a usable dataset, and produce clear evidence the director can put in front of the board.
+
+### The variables
+
+| Variable | File | What it measures |
+| -------- | ---- | ---------------- |
+| **GDP per capita** | `gdp.csv` | Average annual income per person, in US dollars, purchasing power parity (PPP) adjusted so that the same number buys roughly the same basket of goods in every country. |
+| **Urbanisation** | `urban.csv` | The percentage of a country's population living in urban areas (towns and cities) rather than rural ones.  |
+| **Life expectancy** | `life_exp.csv` | Average years a newborn would live if current mortality rates held for their whole life.  |
+| **Population** | `pop.csv` | Total number of people. |
+| **Continent** | `country_to_continent.csv` | A lookup table mapping each country code to its continent, for grouping and colouring. |
 
 ### R packages for today
 
@@ -79,6 +93,7 @@ Open each of the following files from the `data` folder:
 
 * `gdp.csv`
 * `urban.csv`
+* `life_exp.csv`
 * `pop.csv`
 * `country_to_continent.csv`
 
@@ -88,6 +103,7 @@ For each dataset, complete the table below.
 | -------------------------- | ---------------------------- | --------------- | ---------------------------------- |
 | `gdp.csv`                  |                              |                 |                                    |
 | `urban.csv`                |                              |                 |                                    |
+| `life_exp.csv`             |                              |                 |                                    |
 | `pop.csv`                  |                              |                 |                                    |
 | `country_to_continent.csv` |                              |                 |                                    |
 
@@ -98,7 +114,7 @@ For each dataset, complete the table below.
 When describing the main structural issue, be as specific as you can. For example, think about whether a variable is stored in the column names, or whether values that belong in one column have been spread across many columns.
 :::
 
-**(b)**  Using what you observed in part (a), explain whether `gdp.csv`, `urban.csv`, and `pop.csv` contain cross-sectional variation, time variation, or both.
+**(b)**  Using what you observed in part (a), explain whether `gdp.csv`, `urban.csv`, `life_exp.csv`, and `pop.csv` contain cross-sectional variation, time variation, or both.
 
 Then explain how the current layout of the files hides or reveals that structure.
 
@@ -172,21 +188,35 @@ Depending on your question, you may need to think about some of the following:
 
 :::
 
+::: {.callout-note collapse="true"}
+### Hint: functions you may find useful
+
+You will not need all of these, and the order is up to you.
+
+| To do this | Look at |
+| ---------- | ------- |
+| load a file | `read_csv()` |
+| data wrangling basics | `filter()`, `select()`, `mutate()` |
+| simple checks and analyses | `group_by()`, `summarise()`, `is.na()` |
+| combining data | `left_join()`, `join_by()` |
+
+:::
+
 ::: {.callout-tip collapse="true"}
 
 ### Hint: Reshaping year columns
 
 Some of the datasets store the **year inside the column names** rather than in a separate column. In cases like this, `pivot_longer()` can help you move from a wide format to a tidy format.
 
-For example, if your GDP dataset has columns such as `gdp_pcap_pp_1960`, `gdp_pcap_pp_1961`, and so on, you could reshape it like this:
+For example, if your GDP dataset has columns such as `gdp_pcap_pp_1960`, `gdp_pcap_pp_1965`, and so on, you could reshape it like this:
 
 ```{r}
 #| eval: false
 gdp <- gdp |>
   pivot_longer(
     cols = starts_with("gdp_pcap_pp_"),
+    names_prefix = "gdp_pcap_pp_",
     names_to = "year",
-    names_pattern = "gdp_pcap_pp_(\\d{4})$",
     values_to = "gdp_pcap_pp"
   )
 ```
@@ -194,11 +224,28 @@ gdp <- gdp |>
 Here is what each part is doing:
 
 * `cols = starts_with("gdp_pcap_pp_")` selects the year columns you want to reshape
-* `names_to = "year"` creates a new column called `year`
-* `names_pattern = "gdp_pcap_pp_(\\d{4})$"` extracts the 4-digit year from the original column names
+* `names_prefix = "gdp_pcap_pp_"` strips that prefix off the column names, leaving just the year
+* `names_to = "year"` puts what is left into a new column called `year`
 * `values_to = "gdp_pcap_pp"` puts the GDP values into a single column
 
 After this step, the dataset will be much closer to tidy form, where each row can represent one **country-year** observation.
+:::
+
+::: {.callout-important collapse="true"}
+
+### Watch out: one country can have two continents
+
+Nine countries span two continents — Russia, Türkiye, Kazakhstan, Azerbaijan, Armenia, Georgia and Cyprus among them — and `country_to_continent.csv` lists each of them **twice**, once as Europe and once as Asia.
+
+That means the country code does **not** uniquely identify a row in that lookup. If you join it on, R will warn you about a *many-to-many relationship*, and those nine countries will appear twice for every year.
+
+This is not automatically wrong, and you should not just delete rows to make the warning go away. Which behaviour you want depends on your question:
+
+* If you are **comparing continents**, a country counted in both will be included in both totals. Decide whether that is what you want.
+* If you are **focusing on one continent**, keeping both rows is helpful — Russia will correctly appear in a European analysis and an Asian one.
+* If you are counting countries, or averaging across all of them, those nine will be **double-counted** unless you handle them.
+
+Check the row count before and after the join. If it grew, work out why, and make sure whatever you do next is still appropriate.
 :::
 
 ```{r}
@@ -231,15 +278,22 @@ If you create a graph, make sure it has informative axis labels and a clear titl
 If you create a table, make sure it has clear column names and is easy to interpret.
 :::
 
+::: {.callout-note collapse="true"}
+### Hint: plotting functions you may find useful
+
+You will not need all of these, but they may help get you started: `ggplot()`, `aes()`, `geom_point()`, `geom_histogram()`, `geom_bar()`, `geom_line()`, `geom_smooth()`, `facet_wrap()`, `scale_x_log10()`, `labs()`, `theme_minimal()`.
+
+:::
+
 ```{r}
 # Write your answer here
 ```
 
 ### Exercise 8: Writing Up Your Findings
 
-Use **one graph or table** from Exercise 7 and write a short executive brief for an international policy think tank.
+Use **one graph or table** from Exercise 7 and write a short executive brief for your director, to go in front of the bank's board.
 
-Your brief should explain your group's question, summarise the main pattern you found, and explain why it matters.
+Your brief should explain your group's question, summarise the main pattern you found, and explain what it means for where the bank should commit money.
 
 ::: {.callout-warning collapse="true"}
 
@@ -271,7 +325,7 @@ Write up to 3 dot points explaining what the data show.
 
 **Policy Implications**
 
-Write up to 3 dot points explaining why the findings matter for policymakers or policy organisations.
+Write up to 3 dot points explaining what the findings mean for the bank's lending decisions.
 
 **Recommended Actions**
 

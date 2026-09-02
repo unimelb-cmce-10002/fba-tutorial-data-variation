@@ -34,7 +34,7 @@ qnum=1
 
 for f in "${FILES[@]}"; do
   # Detect question type
-  qtype=$(grep -oP '(?<=<!-- question-type: )\w+(?= -->)' "$f")
+  qtype=$(sed -n 's/<!-- question-type: \([a-zA-Z0-9]*\) -->/\1/p' "$f" | head -1)
 
   # Insert prepare header once before first prepare question
   if [[ "$qtype" == "prepare" && "$inserted_prepare" -eq 0 ]]; then

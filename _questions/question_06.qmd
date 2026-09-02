@@ -18,21 +18,35 @@ Depending on your question, you may need to think about some of the following:
 
 :::
 
+::: {.callout-note collapse="true"}
+### Hint: functions you may find useful
+
+You will not need all of these, and the order is up to you.
+
+| To do this | Look at |
+| ---------- | ------- |
+| load a file | `read_csv()` |
+| data wrangling basics | `filter()`, `select()`, `mutate()` |
+| simple checks and analyses | `group_by()`, `summarise()`, `is.na()` |
+| combining data | `left_join()`, `join_by()` |
+
+:::
+
 ::: {.callout-tip collapse="true"}
 
 ### Hint: Reshaping year columns
 
 Some of the datasets store the **year inside the column names** rather than in a separate column. In cases like this, `pivot_longer()` can help you move from a wide format to a tidy format.
 
-For example, if your GDP dataset has columns such as `gdp_pcap_pp_1960`, `gdp_pcap_pp_1961`, and so on, you could reshape it like this:
+For example, if your GDP dataset has columns such as `gdp_pcap_pp_1960`, `gdp_pcap_pp_1965`, and so on, you could reshape it like this:
 
 ```{r}
 #| eval: false
 gdp <- gdp |>
   pivot_longer(
     cols = starts_with("gdp_pcap_pp_"),
+    names_prefix = "gdp_pcap_pp_",
     names_to = "year",
-    names_pattern = "gdp_pcap_pp_(\\d{4})$",
     values_to = "gdp_pcap_pp"
   )
 ```
@@ -40,8 +54,8 @@ gdp <- gdp |>
 Here is what each part is doing:
 
 * `cols = starts_with("gdp_pcap_pp_")` selects the year columns you want to reshape
-* `names_to = "year"` creates a new column called `year`
-* `names_pattern = "gdp_pcap_pp_(\\d{4})$"` extracts the 4-digit year from the original column names
+* `names_prefix = "gdp_pcap_pp_"` strips that prefix off the column names, leaving just the year
+* `names_to = "year"` puts what is left into a new column called `year`
 * `values_to = "gdp_pcap_pp"` puts the GDP values into a single column
 
 After this step, the dataset will be much closer to tidy form, where each row can represent one **country-year** observation.
@@ -58,6 +72,10 @@ Teaching Note
 :::
 
 ::: {.teaching-block-body}
+
+⏱️ **Timing**
+
+~20 minutes. If some groups are nowhere near finished, direct them to /data/please_help/ for analysis-ready datasets they should load for Q7-8.
 
 🎯 **Learning Objective**
 
@@ -95,6 +113,17 @@ Students should:
 * Students may drop missing values without checking whether this removes large parts of the time period.
 * Students may build a dataset with the wrong unit of observation.
 
+⚠️ **Watch: the continent lookup is not unique**
+
+`country_to_continent.csv` lists nine transcontinental countries — Russia, Türkiye, Kazakhstan, Azerbaijan, Armenia, Georgia, Cyprus among them — **twice**, once as Europe and once as Asia. Groups will see a **many-to-many warning** and students who ignore it will silently double-count those countries.
+
+**Do not present this as a bug with one right fix.** The duplication is genuinely useful for some questions and wrong for others:
+
+* Comparing continents, or focusing on one — keeping both rows is correct. Russia *should* appear in a European analysis and an Asian one.
+* Averaging across all countries, or counting them — those nine are double-counted and need handling.
+
+The exercise is to notice the warning, work out what it means, and check the choice still suits their question. Ask what the warning says before explaining it. Row counts before and after the join are the cheap diagnostic. This is last week's join-key lesson turning up in real data, so it is worth two minutes.
+
 :::
 
 :::
@@ -122,10 +151,10 @@ Here is one strong example for the question relating **urbanisation** to **GDP p
 ```{r}
 #| eval: false
 # Load the raw files
-gdp <- read_csv("out_data/gdp.csv")
-urban <- read_csv("out_data/urban.csv")
-pop <- read_csv("out_data/pop.csv")
-codes <- read_csv("out_data/country_to_continent.csv")
+gdp   <- read_csv("data/gdp.csv")
+urban <- read_csv("data/urban.csv")
+pop   <- read_csv("data/pop.csv")
+codes <- read_csv("data/country_to_continent.csv")
 
 # Tidy GDP:
 # the year is currently stored inside the column names,
@@ -133,36 +162,34 @@ codes <- read_csv("out_data/country_to_continent.csv")
 gdp <- gdp |>
   pivot_longer(
     cols = starts_with("gdp_pcap_pp_"),
+    names_prefix = "gdp_pcap_pp_",
     names_to = "year",
-    names_pattern = "gdp_pcap_pp_(\\d{4})$",
     values_to = "gdp_pcap_pp"
   ) |>
   mutate(year = as.numeric(year))
 
-# Tidy urbanisation:
-# again, reshape so each row is one country-year
+# Tidy urbanisation: same pattern, different prefix
 urban <- urban |>
   pivot_longer(
-    cols = starts_with("urban"),
+    cols = starts_with("urban_pct_"),
+    names_prefix = "urban_pct_",
     names_to = "year",
-    names_pattern = "urban_pct_(\\d{4})$",
     values_to = "urban_pct"
   ) |>
   mutate(year = as.numeric(year))
 
 # Tidy population:
-# this can be useful later for bubble size or weighted summaries
+# useful later for bubble size or population-weighted summaries
 pop <- pop |>
   pivot_longer(
-    cols = starts_with("pop"),
+    cols = starts_with("pop_"),
+    names_prefix = "pop_",
     names_to = "year",
-    names_pattern = "pop_(\\d{4})$",
-    values_to = "pop"
+    values_to = "population"
   ) |>
   mutate(year = as.numeric(year))
 
 # Join the tidied files together.
-# After this step, each row should represent one country-year.
 analysis_df <- gdp |>
   left_join(
     urban |> select(-name),
@@ -174,8 +201,12 @@ analysis_df <- gdp |>
   ) |>
   left_join(
     codes |> select(-country_name),
-    by = join_by(geo == iso3)
+    by = join_by(geo == iso3)   # what do you notice?
   )
+
+# Confirm what the join did to the row count.
+nrow(gdp)          # 3088 before
+nrow(analysis_df)  # 3200 after - there are 9 duplicated countries (why?)
 
 # Check data coverage by year.
 # This helps us see whether some years have much more missing data than others.
@@ -186,7 +217,7 @@ analysis_df |>
     pct_complete = mean(
       !is.na(gdp_pcap_pp) &
       !is.na(urban_pct) &
-      !is.na(pop) &
+      !is.na(population) &
       !is.na(continent_name)
     ) * 100
   )
@@ -201,12 +232,13 @@ analysis_df <- analysis_df |>
 glimpse(analysis_df)
 ```
 
-This is a strong workflow because it does four things clearly:
+This is a strong workflow because it does five things clearly:
 
 1. It reshapes the messy files into tidy form.
 2. It joins them into one country-year dataset.
-3. It checks missingness before moving to analysis.
-4. It makes an explicit filtering decision based on data coverage.
+3. It notices that the continent join is one-to-many, and makes a deliberate choice about it.
+4. It checks missingness before moving to analysis.
+5. It makes an explicit filtering decision based on data coverage.
 
 The key missingness lesson here is that dropping missing values should usually come **after** you inspect where the gaps are. A better workflow is:
 

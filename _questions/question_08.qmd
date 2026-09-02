@@ -2,9 +2,9 @@
 
 ### Exercise 8: Writing Up Your Findings
 
-Use **one graph or table** from Exercise 7 and write a short executive brief for an international policy think tank.
+Use **one graph or table** from Exercise 7 and write a short executive brief for your director, to go in front of the bank's board.
 
-Your brief should explain your group's question, summarise the main pattern you found, and explain why it matters.
+Your brief should explain your group's question, summarise the main pattern you found, and explain what it means for where the bank should commit money.
 
 ::: {.callout-warning collapse="true"}
 
@@ -36,7 +36,7 @@ Write up to 3 dot points explaining what the data show.
 
 **Policy Implications**
 
-Write up to 3 dot points explaining why the findings matter for policymakers or policy organisations.
+Write up to 3 dot points explaining what the findings mean for the bank's lending decisions.
 
 **Recommended Actions**
 
@@ -56,6 +56,10 @@ Teaching Note
 
 ::: {.teaching-block-body}
 
+⏱️ **Timing**
+
+~20 minutes writing time, ~15 minutes presentation time. Groups should not neglect their writing time, as in the group assignment and possibly the final exam they will need to write a short executive brief based on their analysis - so this is good practice. No matter where groups are at, save the last 15 minutes for each group to present at least one of their plots/tables and a part of their executive summary to the whole class. 
+
 🎯 **Learning Objective**
 Students should:
 
@@ -69,7 +73,7 @@ Students should:
 * This exercise is about **communication**, not new analysis.
 * Students should choose the graph or table that best supports the story they want to tell.
 * A good executive brief is selective. It highlights the most important result rather than repeating every detail.
-* The audience is an **international policy think tank**, so the tone should be clear, concise, and practical.
+* The audience is the **board of a development bank** deciding where to commit infrastructure lending, so the tone should be clear, concise, and practical.
 * Policy implications should follow from the evidence. Students should avoid making claims their analysis cannot support.
 * Recommendations should be concrete and linked to what the data actually show.
 
@@ -78,7 +82,7 @@ Students should:
 * What is the one main message you want the reader to remember?
 * Does your exhibit clearly support that message?
 * Are you explaining what the data show, or are you drifting into unsupported claims?
-* What would a policymaker take away from this finding?
+* What would a board member deciding on infrastructure lending take away from this finding?
 * Are your recommended actions realistic given the limits of the analysis?
 
 📌 **Common Misunderstandings**
@@ -115,7 +119,7 @@ Below is **one possible solution** based on the question **How does urbanisation
 
 **Executive Summary**
 
-Across all years shown, countries with higher GDP per capita tend to have higher urbanisation rates. The relationship is clearly positive but nonlinear, and it appears to flatten somewhat in later decades as many countries reach already-high levels of urbanisation. Over time, the distribution shifts toward higher income and higher urbanisation, but substantial cross-country differences remain. For policymakers, this suggests that economic development and urban transition move together, though income alone is not enough to explain urbanisation patterns.
+Across all years shown, countries with higher GDP per capita tend to have higher urbanisation rates. The relationship is clearly positive but nonlinear, and it appears to flatten somewhat in later decades as many countries reach already-high levels of urbanisation. Over time, the distribution shifts toward higher income and higher urbanisation, but substantial cross-country differences remain. For the bank, this suggests that income growth is a usable early signal of coming urban infrastructure demand — but not a sufficient one on its own.
 
 **Key Insights**
 
@@ -125,15 +129,15 @@ Across all years shown, countries with higher GDP per capita tend to have higher
 
 **Policy Implications**
 
-* Policymakers should expect urban growth pressures to intensify as countries move through earlier and middle stages of economic development.
-* At higher income levels, further economic growth may be associated with smaller increases in urbanisation because many countries are already highly urbanised.
-* Because countries at similar income levels can still show different urbanisation patterns, policy design should be sensitive to local context rather than based on income alone.
+* The bank should expect demand for urban infrastructure to intensify in countries moving through the earlier and middle stages of income growth.
+* In already-rich countries, further income growth is unlikely to bring much additional urbanisation, so the same lending is less likely to be needed there.
+* Because countries at similar income levels still differ widely, income alone is not a sound basis for a lending decision.
 
 **Recommended Actions**
 
-* Use country-level urbanisation and income data together to identify where infrastructure demand is likely to rise most quickly.
-* Benchmark countries against peers at similar income levels to identify unusually fast or slow urban transition.
-* Use broad descriptive patterns like these as a starting point, then follow up with more detailed country-specific analysis before making major policy decisions.
+* Prioritise urban infrastructure lending toward low- and middle-income countries, where the income-urbanisation relationship is steepest.
+* Benchmark each candidate country against peers at similar income levels, and flag those that are unusually far above or below the trend for closer review.
+* Treat this as a screening tool only. Commission more detailed, country-specific analyses before committing to any major loans.
 
 This is only one possible solution. A strong response for the life expectancy question, or a response using a table rather than a graph, could also work well as long as it stays clear, concise, and faithful to the evidence.
 

@@ -1,0 +1,3 @@
+## Key R functions used in this notebook
+
+This was largely a revision week that tied together the previous 4 weeks of material, as such there are no unique key functions to summarise this week. 

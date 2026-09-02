@@ -33,6 +33,12 @@ Teaching Note
 
 ::: {.teaching-block-body}
 
+**Note**: this tutorial should involve minimal / no time where you walk students through suggested solutions. Instead, frame this as a test-run of the group assignment and give them a rough outline of how long each part should take them. Have them work independently in their groups all the way through each exercise, without whole-of-class check-ins, and then have each group present their findings in the last 15 minutes of class. 
+
+⏱️ **Timing**
+
+5-10 minutes.
+
 🎯 **Learning Objective**  
 
 Students should:

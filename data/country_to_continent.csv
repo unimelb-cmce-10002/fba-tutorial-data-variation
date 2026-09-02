@@ -1,0 +1,263 @@
+continent_name,continent_code,country_name,iso3
+Asia,AS,"Afghanistan, Islamic Republic of",AFG
+Europe,EU,"Albania, Republic of",ALB
+Antarctica,AN,Antarctica (the territory South of 60 deg S),ATA
+Africa,AF,"Algeria, People's Democratic Republic of",DZA
+Oceania,OC,American Samoa,ASM
+Europe,EU,"Andorra, Principality of",AND
+Africa,AF,"Angola, Republic of",AGO
+North America,NA,Antigua and Barbuda,ATG
+Europe,EU,"Azerbaijan, Republic of",AZE
+Asia,AS,"Azerbaijan, Republic of",AZE
+South America,SA,"Argentina, Argentine Republic",ARG
+Oceania,OC,"Australia, Commonwealth of",AUS
+Europe,EU,"Austria, Republic of",AUT
+North America,NA,"Bahamas, Commonwealth of the",BHS
+Asia,AS,"Bahrain, Kingdom of",BHR
+Asia,AS,"Bangladesh, People's Republic of",BGD
+Europe,EU,"Armenia, Republic of",ARM
+Asia,AS,"Armenia, Republic of",ARM
+North America,NA,Barbados,BRB
+Europe,EU,"Belgium, Kingdom of",BEL
+North America,NA,Bermuda,BMU
+Asia,AS,"Bhutan, Kingdom of",BTN
+South America,SA,"Bolivia, Republic of",BOL
+Europe,EU,Bosnia and Herzegovina,BIH
+Africa,AF,"Botswana, Republic of",BWA
+Antarctica,AN,Bouvet Island (Bouvetoya),BVT
+South America,SA,"Brazil, Federative Republic of",BRA
+North America,NA,Belize,BLZ
+Asia,AS,British Indian Ocean Territory (Chagos Archipelago),IOT
+Oceania,OC,Solomon Islands,SLB
+North America,NA,British Virgin Islands,VGB
+Asia,AS,Brunei Darussalam,BRN
+Europe,EU,"Bulgaria, Republic of",BGR
+Asia,AS,"Myanmar, Union of",MMR
+Africa,AF,"Burundi, Republic of",BDI
+Europe,EU,"Belarus, Republic of",BLR
+Asia,AS,"Cambodia, Kingdom of",KHM
+Africa,AF,"Cameroon, Republic of",CMR
+North America,NA,Canada,CAN
+Africa,AF,"Cape Verde, Republic of",CPV
+North America,NA,Cayman Islands,CYM
+Africa,AF,Central African Republic,CAF
+Asia,AS,"Sri Lanka, Democratic Socialist Republic of",LKA
+Africa,AF,"Chad, Republic of",TCD
+South America,SA,"Chile, Republic of",CHL
+Asia,AS,"China, People's Republic of",CHN
+Asia,AS,Taiwan,TWN
+Asia,AS,Christmas Island,CXR
+Asia,AS,Cocos (Keeling) Islands,CCK
+South America,SA,"Colombia, Republic of",COL
+Africa,AF,"Comoros, Union of the",COM
+Africa,AF,Mayotte,MYT
+Africa,AF,"Congo, Republic of the",COG
+Africa,AF,"Congo, Democratic Republic of the",COD
+Oceania,OC,Cook Islands,COK
+North America,NA,"Costa Rica, Republic of",CRI
+Europe,EU,"Croatia, Republic of",HRV
+North America,NA,"Cuba, Republic of",CUB
+Europe,EU,"Cyprus, Republic of",CYP
+Asia,AS,"Cyprus, Republic of",CYP
+Europe,EU,Czech Republic,CZE
+Africa,AF,"Benin, Republic of",BEN
+Europe,EU,"Denmark, Kingdom of",DNK
+North America,NA,"Dominica, Commonwealth of",DMA
+North America,NA,Dominican Republic,DOM
+South America,SA,"Ecuador, Republic of",ECU
+North America,NA,"El Salvador, Republic of",SLV
+Africa,AF,"Equatorial Guinea, Republic of",GNQ
+Africa,AF,"Ethiopia, Federal Democratic Republic of",ETH
+Africa,AF,"Eritrea, State of",ERI
+Europe,EU,"Estonia, Republic of",EST
+Europe,EU,Faroe Islands,FRO
+South America,SA,Falkland Islands (Malvinas),FLK
+Antarctica,AN,South Georgia and the South Sandwich Islands,SGS
+Oceania,OC,"Fiji, Republic of the Fiji Islands",FJI
+Europe,EU,"Finland, Republic of",FIN
+Europe,EU,Åland Islands,ALA
+Europe,EU,"France, French Republic",FRA
+South America,SA,French Guiana,GUF
+Oceania,OC,French Polynesia,PYF
+Antarctica,AN,French Southern Territories,ATF
+Africa,AF,"Djibouti, Republic of",DJI
+Africa,AF,"Gabon, Gabonese Republic",GAB
+Europe,EU,Georgia,GEO
+Asia,AS,Georgia,GEO
+Africa,AF,"Gambia, Republic of the",GMB
+Asia,AS,"Palestinian Territory, Occupied",PSE
+Europe,EU,"Germany, Federal Republic of",DEU
+Africa,AF,"Ghana, Republic of",GHA
+Europe,EU,Gibraltar,GIB
+Oceania,OC,"Kiribati, Republic of",KIR
+Europe,EU,"Greece, Hellenic Republic",GRC
+North America,NA,Greenland,GRL
+North America,NA,Grenada,GRD
+North America,NA,Guadeloupe,GLP
+Oceania,OC,Guam,GUM
+North America,NA,"Guatemala, Republic of",GTM
+Africa,AF,"Guinea, Republic of",GIN
+South America,SA,"Guyana, Co-operative Republic of",GUY
+North America,NA,"Haiti, Republic of",HTI
+Antarctica,AN,Heard Island and McDonald Islands,HMD
+Europe,EU,Holy See (Vatican City State),VAT
+North America,NA,"Honduras, Republic of",HND
+Asia,AS,"Hong Kong, Special Administrative Region of China",HKG
+Europe,EU,"Hungary, Republic of",HUN
+Europe,EU,"Iceland, Republic of",ISL
+Asia,AS,"India, Republic of",IND
+Asia,AS,"Indonesia, Republic of",IDN
+Asia,AS,"Iran, Islamic Republic of",IRN
+Asia,AS,"Iraq, Republic of",IRQ
+Europe,EU,Ireland,IRL
+Asia,AS,"Israel, State of",ISR
+Europe,EU,"Italy, Italian Republic",ITA
+Africa,AF,"Cote d'Ivoire, Republic of",CIV
+North America,NA,Jamaica,JAM
+Asia,AS,Japan,JPN
+Europe,EU,"Kazakhstan, Republic of",KAZ
+Asia,AS,"Kazakhstan, Republic of",KAZ
+Asia,AS,"Jordan, Hashemite Kingdom of",JOR
+Africa,AF,"Kenya, Republic of",KEN
+Asia,AS,"Korea, Democratic People's Republic of",PRK
+Asia,AS,"Korea, Republic of",KOR
+Asia,AS,"Kuwait, State of",KWT
+Asia,AS,Kyrgyz Republic,KGZ
+Asia,AS,Lao People's Democratic Republic,LAO
+Asia,AS,"Lebanon, Lebanese Republic",LBN
+Africa,AF,"Lesotho, Kingdom of",LSO
+Europe,EU,"Latvia, Republic of",LVA
+Africa,AF,"Liberia, Republic of",LBR
+Africa,AF,Libyan Arab Jamahiriya,LBY
+Europe,EU,"Liechtenstein, Principality of",LIE
+Europe,EU,"Lithuania, Republic of",LTU
+Europe,EU,"Luxembourg, Grand Duchy of",LUX
+Asia,AS,"Macao, Special Administrative Region of China",MAC
+Africa,AF,"Madagascar, Republic of",MDG
+Africa,AF,"Malawi, Republic of",MWI
+Asia,AS,Malaysia,MYS
+Asia,AS,"Maldives, Republic of",MDV
+Africa,AF,"Mali, Republic of",MLI
+Europe,EU,"Malta, Republic of",MLT
+North America,NA,Martinique,MTQ
+Africa,AF,"Mauritania, Islamic Republic of",MRT
+Africa,AF,"Mauritius, Republic of",MUS
+North America,NA,"Mexico, United Mexican States",MEX
+Europe,EU,"Monaco, Principality of",MCO
+Asia,AS,Mongolia,MNG
+Europe,EU,"Moldova, Republic of",MDA
+Europe,EU,"Montenegro, Republic of",MNE
+North America,NA,Montserrat,MSR
+Africa,AF,"Morocco, Kingdom of",MAR
+Africa,AF,"Mozambique, Republic of",MOZ
+Asia,AS,"Oman, Sultanate of",OMN
+Africa,AF,"Namibia, Republic of",NAM
+Oceania,OC,"Nauru, Republic of",NRU
+Asia,AS,"Nepal, State of",NPL
+Europe,EU,"Netherlands, Kingdom of the",NLD
+North America,NA,Netherlands Antilles,ANT
+North America,NA,Curaçao,CUW
+North America,NA,Aruba,ABW
+North America,NA,Sint Maarten (Netherlands),SXM
+North America,NA,"Bonaire, Sint Eustatius and Saba",BES
+Oceania,OC,New Caledonia,NCL
+Oceania,OC,"Vanuatu, Republic of",VUT
+Oceania,OC,New Zealand,NZL
+North America,NA,"Nicaragua, Republic of",NIC
+Africa,AF,"Niger, Republic of",NER
+Africa,AF,"Nigeria, Federal Republic of",NGA
+Oceania,OC,Niue,NIU
+Oceania,OC,Norfolk Island,NFK
+Europe,EU,"Norway, Kingdom of",NOR
+Oceania,OC,"Northern Mariana Islands, Commonwealth of the",MNP
+Oceania,OC,United States Minor Outlying Islands,UMI
+North America,NA,United States Minor Outlying Islands,UMI
+Oceania,OC,"Micronesia, Federated States of",FSM
+Oceania,OC,"Marshall Islands, Republic of the",MHL
+Oceania,OC,"Palau, Republic of",PLW
+Asia,AS,"Pakistan, Islamic Republic of",PAK
+North America,NA,"Panama, Republic of",PAN
+Oceania,OC,"Papua New Guinea, Independent State of",PNG
+South America,SA,"Paraguay, Republic of",PRY
+South America,SA,"Peru, Republic of",PER
+Asia,AS,"Philippines, Republic of the",PHL
+Oceania,OC,Pitcairn Islands,PCN
+Europe,EU,"Poland, Republic of",POL
+Europe,EU,"Portugal, Portuguese Republic",PRT
+Africa,AF,"Guinea-Bissau, Republic of",GNB
+Asia,AS,"Timor-Leste, Democratic Republic of",TLS
+North America,NA,"Puerto Rico, Commonwealth of",PRI
+Asia,AS,"Qatar, State of",QAT
+Africa,AF,Reunion,REU
+Europe,EU,Romania,ROU
+Europe,EU,Russian Federation,RUS
+Asia,AS,Russian Federation,RUS
+Africa,AF,"Rwanda, Republic of",RWA
+North America,NA,Saint Barthelemy,BLM
+Africa,AF,Saint Helena,SHN
+North America,NA,"Saint Kitts and Nevis, Federation of",KNA
+North America,NA,Anguilla,AIA
+North America,NA,Saint Lucia,LCA
+North America,NA,Saint Martin,MAF
+North America,NA,Saint Pierre and Miquelon,SPM
+North America,NA,Saint Vincent and the Grenadines,VCT
+Europe,EU,"San Marino, Republic of",SMR
+Africa,AF,"Sao Tome and Principe, Democratic Republic of",STP
+Asia,AS,"Saudi Arabia, Kingdom of",SAU
+Africa,AF,"Senegal, Republic of",SEN
+Europe,EU,"Serbia, Republic of",SRB
+Africa,AF,"Seychelles, Republic of",SYC
+Africa,AF,"Sierra Leone, Republic of",SLE
+Asia,AS,"Singapore, Republic of",SGP
+Europe,EU,Slovakia (Slovak Republic),SVK
+Asia,AS,"Vietnam, Socialist Republic of",VNM
+Europe,EU,"Slovenia, Republic of",SVN
+Africa,AF,"Somalia, Somali Republic",SOM
+Africa,AF,"South Africa, Republic of",ZAF
+Africa,AF,"Zimbabwe, Republic of",ZWE
+Europe,EU,"Spain, Kingdom of",ESP
+Africa,AF,South Sudan,SSD
+Africa,AF,Western Sahara,ESH
+Africa,AF,"Sudan, Republic of",SDN
+South America,SA,"Suriname, Republic of",SUR
+Europe,EU,Svalbard & Jan Mayen Islands,SJM
+Africa,AF,"Swaziland, Kingdom of",SWZ
+Europe,EU,"Sweden, Kingdom of",SWE
+Europe,EU,"Switzerland, Swiss Confederation",CHE
+Asia,AS,Syrian Arab Republic,SYR
+Asia,AS,"Tajikistan, Republic of",TJK
+Asia,AS,"Thailand, Kingdom of",THA
+Africa,AF,"Togo, Togolese Republic",TGO
+Oceania,OC,Tokelau,TKL
+Oceania,OC,"Tonga, Kingdom of",TON
+North America,NA,"Trinidad and Tobago, Republic of",TTO
+Asia,AS,United Arab Emirates,ARE
+Africa,AF,"Tunisia, Tunisian Republic",TUN
+Europe,EU,"Turkey, Republic of",TUR
+Asia,AS,"Turkey, Republic of",TUR
+Asia,AS,Turkmenistan,TKM
+North America,NA,Turks and Caicos Islands,TCA
+Oceania,OC,Tuvalu,TUV
+Africa,AF,"Uganda, Republic of",UGA
+Europe,EU,Ukraine,UKR
+Europe,EU,"Macedonia, The Former Yugoslav Republic of",MKD
+Africa,AF,"Egypt, Arab Republic of",EGY
+Europe,EU,United Kingdom of Great Britain & Northern Ireland,GBR
+Europe,EU,"Guernsey, Bailiwick of",GGY
+Europe,EU,"Jersey, Bailiwick of",JEY
+Europe,EU,Isle of Man,IMN
+Africa,AF,"Tanzania, United Republic of",TZA
+North America,NA,United States of America,USA
+North America,NA,United States Virgin Islands,VIR
+Africa,AF,Burkina Faso,BFA
+South America,SA,"Uruguay, Eastern Republic of",URY
+Asia,AS,"Uzbekistan, Republic of",UZB
+South America,SA,"Venezuela, Bolivarian Republic of",VEN
+Oceania,OC,Wallis and Futuna,WLF
+Oceania,OC,"Samoa, Independent State of",WSM
+Asia,AS,Yemen,YEM
+Africa,AF,"Zambia, Republic of",ZMB
+Oceania,OC,Disputed Territory,NA
+Asia,AS,Iraq-Saudi Arabia Neutral Zone,NA
+Asia,AS,United Nations Neutral Zone,NA
+Asia,AS,Spratly Islands,NA

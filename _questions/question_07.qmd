@@ -26,6 +26,13 @@ If you create a graph, make sure it has informative axis labels and a clear titl
 If you create a table, make sure it has clear column names and is easy to interpret.
 :::
 
+::: {.callout-note collapse="true"}
+### Hint: plotting functions you may find useful
+
+You will not need all of these, but they may help get you started: `ggplot()`, `aes()`, `geom_point()`, `geom_histogram()`, `geom_bar()`, `geom_line()`, `geom_smooth()`, `facet_wrap()`, `scale_x_log10()`, `labs()`, `theme_minimal()`.
+
+:::
+
 <!-- BEGIN PROFILE:r-teaching-guide -->
 
 ::: {.content-visible when-profile="r-teaching-guide"}
@@ -37,6 +44,10 @@ Teaching Note
 :::
 
 ::: {.teaching-block-body}
+
+⏱️ **Timing**
+
+~15 minutes. Groups should complete AT LEAST ONE presentation-ready plot/table. Ideally, two. 
 
 🎯 **Learning Objective**
 

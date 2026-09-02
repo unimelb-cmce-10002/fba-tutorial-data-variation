@@ -1,10 +1,24 @@
 ## The Policy Challenge
 
-An international policy think tank is preparing a briefing on how countries change as they develop. Some policymakers are interested in whether rising incomes are closely tied to longer lives. 
-Others want to know whether higher incomes are associated with greater urbanisation and the pressures that come with it, such as demand for housing, transport, and public services.
+You work in the research team at an international development bank. The bank lends to governments for long-term infrastructure — hospitals, housing, water, public transport — and those loans are decided years before the infrastructure is needed.
 
-Your team has been given a set of messy country-level datasets, but the files are spread across multiple tables and are not yet ready for analysis. 
-Your task is to work out what kind of variation the data contain, turn them into a usable dataset, and produce clear evidence that can support a short policy brief.
+Your director is preparing a briefing for the board on a single practical question:
+
+> **As countries get richer, what predictably changes about them?**
+
+The answer shapes where the bank commits money. For example, if rising incomes reliably come with rapid urban growth, the bank should be funding city infrastructure ahead of the demand. If rising incomes come with longer lives, it should be funding healthcare for an ageing population instead. 
+
+Your team has been given five country-level files. They are not ready for analysis: the data are untidy and spread across separate tables. Your task is to work out what kind of variation these data contain, turn them into a usable dataset, and produce clear evidence the director can put in front of the board.
+
+### The variables
+
+| Variable | File | What it measures |
+| -------- | ---- | ---------------- |
+| **GDP per capita** | `gdp.csv` | Average annual income per person, in US dollars, purchasing power parity (PPP) adjusted so that the same number buys roughly the same basket of goods in every country. |
+| **Urbanisation** | `urban.csv` | The percentage of a country's population living in urban areas (towns and cities) rather than rural ones.  |
+| **Life expectancy** | `life_exp.csv` | Average years a newborn would live if current mortality rates held for their whole life.  |
+| **Population** | `pop.csv` | Total number of people. |
+| **Continent** | `country_to_continent.csv` | A lookup table mapping each country code to its continent, for grouping and colouring. |
 
 ### R packages for today
 
