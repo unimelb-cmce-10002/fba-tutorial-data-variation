@@ -75,7 +75,7 @@ Teaching Note
 
 ⏱️ **Timing**
 
-~20 minutes. If some groups are nowhere near finished, direct them to /data/please_help/ for analysis-ready datasets they should load for Q7-8.
+~20 minutes. If some groups are nowhere near finished, direct them to `data/oh_no/` for analysis-ready datasets they can load and use for Q7–8.
 
 🎯 **Learning Objective**
 
@@ -149,7 +149,6 @@ There are different valid ways to build the analysis dataset. What matters most 
 Here is one strong example for the question relating **urbanisation** to **GDP per capita**.
 
 ```{r}
-#| eval: false
 # Load the raw files
 gdp   <- read_csv("data/gdp.csv")
 urban <- read_csv("data/urban.csv")

@@ -114,8 +114,6 @@ One sensible approach is to create:
 In this case, we would usually **prefer the graph** because the main question is about the **relationship** between two variables, and a graph makes that pattern easier to see. That said, if a group is pressed for time, a clear summary table can still be a valid alternative.
 
 ```{r}
-#| eval: false
-
 # Graph: relationship between GDP per capita and urbanisation
 analysis_df |>
   filter(year %in% c(1960, 1990, 2020)) |>
@@ -123,11 +121,10 @@ analysis_df |>
     aes(
       x = gdp_pcap_pp / 1e3,
       y = urban_pct,
-      size = pop,
       colour = continent_name
     )
   ) +
-  geom_point(alpha = 0.5) +
+  geom_point(alpha = 0.5, aes(size = population)) +
   geom_smooth(
     aes(x = gdp_pcap_pp / 1e3, y = urban_pct),
     method = "lm",
@@ -151,15 +148,14 @@ analysis_df |>
 ```
 
 ```{r}
-#| eval: false
 # Table: continent-level summary for the same benchmark years
 table_continent_year <- analysis_df |>
   filter(year %in% c(1960, 1990, 2020)) |>
   group_by(continent_name, year) |>
   summarise(
-    avg_gdp_pcap_pp = weighted.mean(gdp_pcap_pp, w = pop, na.rm = TRUE),
-    avg_urban_pct   = weighted.mean(urban_pct, w = pop, na.rm = TRUE),
-    total_pop       = sum(pop, na.rm = TRUE),
+    avg_gdp_pcap_pp = weighted.mean(gdp_pcap_pp, w = population, na.rm = TRUE),
+    avg_urban_pct   = weighted.mean(urban_pct, w = population, na.rm = TRUE),
+    total_pop       = sum(population, na.rm = TRUE),
     n_countries     = n_distinct(geo),
     .groups = "drop"
   ) |>
@@ -179,7 +175,7 @@ table_continent_year <- analysis_df |>
   arrange(continent, year)
 
 table_continent_year |>
-  kable(
+  knitr::kable(
     col.names = c(
       "Continent",
       "Year",

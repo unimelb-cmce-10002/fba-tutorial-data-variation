@@ -122,7 +122,7 @@ This will:
 bash make_student.sh
 ```
 
-This generates `tutorial_student.qmd`, which includes:
+This generates `tutorial_students.qmd`, which includes:
 
 - Only student-visible content
 - All prepare/in-class questions in the right place

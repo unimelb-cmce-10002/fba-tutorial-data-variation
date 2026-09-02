@@ -119,12 +119,12 @@ Below is **one possible solution** based on the question **How does urbanisation
 
 **Executive Summary**
 
-Across all years shown, countries with higher GDP per capita tend to have higher urbanisation rates. The relationship is clearly positive but nonlinear, and it appears to flatten somewhat in later decades as many countries reach already-high levels of urbanisation. Over time, the distribution shifts toward higher income and higher urbanisation, but substantial cross-country differences remain. For the bank, this suggests that income growth is a usable early signal of coming urban infrastructure demand — but not a sufficient one on its own.
+Across all years shown, countries with higher GDP per capita tend to have higher urbanisation rates. The relationship is clearly positive, but it appears to flatten somewhat in later decades as many countries reach already-high levels of urbanisation. Over time, the distribution shifts toward higher income and higher urbanisation, but substantial cross-country differences remain. For the bank, this suggests that income growth is a usable early signal of coming urban infrastructure demand — but not a sufficient one on its own.
 
 **Key Insights**
 
 * In every benchmark year, countries with higher GDP per capita tend to be more urbanised.
-* The relationship appears curved rather than linear, and seems somewhat flatter in later decades.
+* The relationship is slightly curved rather than linear, and this highlights a somewhat flatter trend in later decades.
 * Countries with similar income levels can still show quite different urbanisation rates, especially at low and middle income levels.
 
 **Policy Implications**

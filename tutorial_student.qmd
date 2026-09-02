@@ -231,23 +231,6 @@ Here is what each part is doing:
 After this step, the dataset will be much closer to tidy form, where each row can represent one **country-year** observation.
 :::
 
-::: {.callout-important collapse="true"}
-
-### Watch out: one country can have two continents
-
-Nine countries span two continents — Russia, Türkiye, Kazakhstan, Azerbaijan, Armenia, Georgia and Cyprus among them — and `country_to_continent.csv` lists each of them **twice**, once as Europe and once as Asia.
-
-That means the country code does **not** uniquely identify a row in that lookup. If you join it on, R will warn you about a *many-to-many relationship*, and those nine countries will appear twice for every year.
-
-This is not automatically wrong, and you should not just delete rows to make the warning go away. Which behaviour you want depends on your question:
-
-* If you are **comparing continents**, a country counted in both will be included in both totals. Decide whether that is what you want.
-* If you are **focusing on one continent**, keeping both rows is helpful — Russia will correctly appear in a European analysis and an Asian one.
-* If you are counting countries, or averaging across all of them, those nine will be **double-counted** unless you handle them.
-
-Check the row count before and after the join. If it grew, work out why, and make sure whatever you do next is still appropriate.
-:::
-
 ```{r}
 # Write your answer here
 ```
